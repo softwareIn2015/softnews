@@ -4,32 +4,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>用户注册-欢迎新朋友</title>
 </head>
-<body>
+<body >
 <!-- 注册-->
-<div class="regist">
-<h1>欢迎注册</h1>
-<h3>
+
+<div id="formbackground" style="position:absolute;z-index:-1; height:100%;width:100%"> 
+<img src="../images/84N58PICHpZ.jpg"
+ height="100%" width="100%"/ align="middle">
+<script type="text/javascript">
+$(function(){
+    $('#formbackground').height($(window).height());
+    $('#formbackground').width($(window).width());
+});
+</script>
+<div class="regist" style="position:absolute;z-index:2;left:450px;top:200px">
+<h1 align="center"><font color="#FF0000">欢迎注册</font></h1>
+ <h3>
    <div class="name">
-   <label class="lavel_name">用户名:</label>
-   <input  class="regist" type="text" value="" id="useid" name="useid"  node-type="userid" autocomplete="off" tabindex="2"/>
+   <label class="lavel_name" style="width:200px;height:100px">用户名:</label>
+   <input  class="regist" type="text" value="" id="useid" name="useid"  node-type="userid" autocomplete="off" />
    </div>
    <div class="mail">
    <label class="label_mail">邮箱:</label>
-   <input class="regist" type="text" value="" id="email" name="email" node-type="email" autocomplete="off" tabindex="3" />
+   <input class="regist" type="text" value="" id="email" name="email" node-type="email" autocomplete="off" />
    </div>
    <div class="password">
    <label class="password">密码:</label>
-   <input class="regist" type="password" id="password" name="password" node-type="password" autocomplete="off" tabindex="4"/>
+   <input class="regist" type="password" id="password" name="password" node-type="password" autocomplete="off"/>
    </div>
    <div class="password">
    <label class="password">确认密码:</label>
-   <input class="regist" type="password" id="idenpassword" name="idenpassword" node-type="idenpassword" autocomplete="off" tabindex="5"/>
+   <input class="regist" type="password" id="idenpassword" name="idenpassword" node-type="idenpassword" autocomplete="off" />
    </div>
 </h3>
-   <div class="regist">
+   <div class="regist" align="center">
    <h2>
-   <input type="button" value="注册" onclik="regist()" />
+   <input type="button" value="注册" style="background:#F00;color:#FFF;height:40px;width:100px" onclik="regist()" />
    </h2>
+</div>
 </div>
 </body>
 </html>
