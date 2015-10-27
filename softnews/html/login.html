@@ -1,50 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+2222222222222222222222222222222222222222222222222222<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>今日之‘新’</title>
 </head>
-
-<body>
-<!-- 登录-->
-<div id="" style="position:absolute;z-index:-1;height:100%;width:80%">
-<img src="../images/u=4101590783,1292709128&fm=21&gp=0.jpg" height="100%" width="80%"/>
-</div>
-<div class = "login" style="position:absolute;z-index:-1;left:1000px;top:200px">
-    <h1  align="center" class=""><font color="#FF0000">用户登录</font></h1>
-    <div class="p1">
-	<p class="login1">
-    <h4>
-    <label class="label_login">账号:</label>
-    <input type="text" class="name_input" id="userId" name="useid" value="请用账号登录" node-type="userid" autocomplete="off" tabindex="2"/>
-    </h4>
-    </p>
-    </div>
-    <div class="p2">
-    <p >
-    <h4>
-    <label class="label_password">密码:</label>
-    <input type="password" class="password_input" id="passwd" name="passwd"  node-type="passwd" autocomplete="off" tabindex="2"/>
-    </h4>
-    </p>
-    </div>
-    <div class="p3" >
-    <p class="code" node-type="validateBox" style="display:none">
-    <h4>
-    <label class="code_label">验证码:</label>
-    <input id="vcode" name="vcode" class="lg_txt2 txt_img3" tabindex="3"  accesskey="v" type="text" size="5 autocomplete="off"">
-    </h4>
-    </p>
-    </div>
-    <div class="login_button"  align="center">
-    <p>
-    <input value="登  录" type="button" onclick="submit()" style="background:#F00;color:#FFF;width:100px;height:40px" class=" " />
-    </p>
-    </div>
-    <div class="regist"  align="center">
-    <a herf="register.html" target="_blank"  class="" ><h4><font color="#003399">注册账号</font></h4></a>
-    </div>
-    
-    </div>
+<body>{% load staticfiles %}
+	<body background="{{% static "login.jpg"}}">
+		<div class = "login" style="position:absolute;z-index:-1;left:800px;top:150px">
+ 			<h1  align="center" class=""><font color="#FF0000">用户登录</font></h1>
+		<form method="post">
+			<table border="0" cellspacing="20px">
+    		<tr><td>账号：</td>
+    			<td><input name="username" type="text" value=""/></td>
+    		</tr>
+    		<tr><td>密码：</td>
+    			<td><input name="password" type="password" /></td> 
+    		</tr>
+            <tr><td>验证码：</td>
+            <td><input name="idencode" type="text"/></td>
+            </tr>
+    		</table>
+            <span style="display:block;width:250px;text-align:center">
+            <input type="submit" value="登录"/>
+            <input type="button" value="注册"/>
+            </span>
+    	</form>
+    	</div>
+    </body>
 </body>
 </html>
