@@ -8,21 +8,21 @@
 	<body background="{{% static "login.jpg"}}">
 		<div class = "login" style="position:absolute;z-index:-1;left:800px;top:150px">
  			<h1  align="center" class=""><font color="#FF0000">用户登录</font></h1>
-		<form method="post">
-			<table border="0" cellspacing="20px">
-    		<tr><td>账号：</td>
-    			<td><input name="username" type="text" value=""/></td>
+		<form method="post" onsubmit="alert("没有账号，请先注册")">
+			<table border="0"  cellspacing="20px" width="405" height="100">
+    		<tr><td width="72">账号：</td>
+    			<td width="326"><input name="username" type="text" value="" style="width:200px;height:30px"/></td>
     		</tr>
-    		<tr><td>密码：</td>
-    			<td><input name="password" type="password" /></td> 
+    		<tr><td width="72">密码：</td>
+    			<td><input name="password" type="password" style="width:200px;height:30px"/></td> 
     		</tr>
-            <tr><td>验证码：</td>
-            <td><input name="idencode" type="text"/></td>
+            <tr><td width="72">验证码：</td>
+            <td><input name="idencode" type="text" style="width:100px;height:30px"/></td>
             </tr>
     		</table>
             <span style="display:block;width:250px;text-align:center">
-            <input type="submit" value="登录"/>
-            <input type="button" value="注册"/>
+            <input  align="left" type="submit" value="登录" style="width:100px;height:40px" />
+            <input  align="right" type="button" value="注册" style="width:100px;height:40px" />
             </span>
     	</form>
     	</div>
