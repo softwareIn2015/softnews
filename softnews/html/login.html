@@ -1,17 +1,17 @@
-2222222222222222222222222222222222222222222222222222<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>今日之‘新’</title>
 </head>
 <body>{% load staticfiles %}
-	<body background="{{% static "login.jpg"}}">
+	<body background="../static/login.jpg" style="width:100%;height:100%">
 		<div class = "login" style="position:absolute;z-index:-1;left:800px;top:150px">
  			<h1  align="center" class=""><font color="#FF0000">用户登录</font></h1>
 		<form method="post" onsubmit="alert("没有账号，请先注册")">
 			<table border="0"  cellspacing="20px" width="405" height="100">
     		<tr><td width="72">账号：</td>
-    			<td width="326"><input name="username" type="text" value="" style="width:200px;height:30px"/></td>
+    			<td ><input name="username" type="text" value="" style="width:200px;height:30px"/></td>
     		</tr>
     		<tr><td width="72">密码：</td>
     			<td><input name="password" type="password" style="width:200px;height:30px"/></td> 
