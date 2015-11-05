@@ -8,13 +8,16 @@
 </head>
 <body>
 <div>
-<h2><font color="#FF0000">今日之‘新’——看新闻，你最好的选择</font></h2>
+	<h2><font color="#FF0000">今日之‘新’——看新闻，你最好的选择</font></h2>
 </div>
-<div class="">
-    <li class=""><span>首页</span></li>
-    <li calss=""><span>动态</span></li>
-    <li class=""><span>登录</span></li>
+	<div style="position:absolute;z-index:-1;left:150px;top:100px">
+	<form method="get">
+		<table border="0" >
+        {% for news in news_list %}
+        <tr><td><h1><a href="/news/detail/?id={{news.id}}" style="text-decoration:none">{{news.title}}</a> </h1></td></tr>
+        {% endfor %}
+		</table>
+	</form>
 </div>
-
 </body>
 </html>
