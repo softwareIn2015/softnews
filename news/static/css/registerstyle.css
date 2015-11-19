@@ -1,0 +1,257 @@
+/*Shared on www.MafiaShare.net */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+
+
+
+body {
+	background: #fff url(../images/bg.png) top left repeat;
+	font-family: "Proxima Nova";
+	font-size: 13px;
+}
+
+.content {
+	width: 1020px;
+	max-height: 529px;
+	position: absolute;
+	margin: 0 auto;
+	margin-top: 40px;
+	border: 1px solid rgba(0, 0, 0 , .1);
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-box-shadow: inset 0 1px 0 0 #72b9eb, 0 1px 2px 0 #b3b3b3;
+    box-shadow: inset 0 1px 0 0 #72b9eb, 0 1px 2px 0 #b3b3b3;
+	top: 50%;
+	margin-top: -274.5px;
+	left: 50%;
+	margin-left: -510px;
+}
+
+#head {
+	background: #f4f4f4;
+	background: -moz-linear-gradient(top,  #f4f4f4 3%, #eef3f6 95%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#f4f4f4), color-stop(95%,#eef3f6));
+	background: -webkit-linear-gradient(top,  #f4f4f4 3%,#eef3f6 95%);
+	background: -o-linear-gradient(top,  #f4f4f4 3%,#eef3f6 95%);
+	background: -ms-linear-gradient(top,  #f4f4f4 3%,#eef3f6 95%);
+	background: linear-gradient(to bottom,  #f4f4f4 3%,#eef3f6 95%);
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding: 30px;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+#head h1 {
+	font-size: 30px;
+	text-align: center;
+}
+
+#main_box {
+	background: #fff;
+	padding: 30px;
+	height: 270px;
+	
+}
+
+#footer_box {
+	padding: 30px;
+	background: #52a8e8;
+	border-top: 1px solid #377ad0;
+	text-align: right;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: #fff;
+	font-weight: 500;
+}
+
+#footer_box a {
+	color: rgba(255, 255, 255, .7);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.register {
+	width: 330px;
+	padding: 20px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-top: 1px solid rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2) !important;
+	position: absolute;
+	background: #fff;
+}
+
+.register h1 {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.text {
+	border: 1px solid rgba(0, 0, 0, .1);
+	padding: 10px 12px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	width: 305px;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+
+.text img {
+	margin-right: 6px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.register input[type=text], .register input[type=password] {
+	border: 0;
+	font-size: 12px;
+	font-weight: 300;
+	height: 32px;
+	position: absolute;
+	margin-top: -8px;
+	width: 275px;
+}
+
+.register input[type=text]:focus, .register input[type=password]:focus {
+	outline: 0;
+}
+.register input[type=submit] {
+	border: 0;
+	padding: 12px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0 , .1);
+	font-size: 13px;
+	font-weight: 300;
+	width: 330px;
+	text-align: center;
+	margin-top: 20px;
+	background: #52a8e8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #52a8e8 0%, #377ad0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#52a8e8), color-stop(100%,#377ad0));
+	background: -webkit-linear-gradient(top,  #52a8e8 0%,#377ad0 100%);
+	background: -o-linear-gradient(top,  #52a8e8 0%,#377ad0 100%);
+	background: -ms-linear-gradient(top,  #52a8e8 0%,#377ad0 100%);
+	background: linear-gradient(to bottom,  #52a8e8 0%,#377ad0 100%);
+	border-right: 1px solid #2e69a3;
+	border-bottom: 1px solid #20559a;
+	border-left: 1px solid #2e69a3;
+	font-weight: bold;
+	color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	text-transform: uppercase;
+	-webkit-box-shadow: inset 0 1px 0 0 #72b9eb, 0 1px 2px 0 #b3b3b3;
+    box-shadow: inset 0 1px 0 0 #72b9eb, 0 1px 2px 0 #b3b3b3;
+    font-size: 12px;
+    letter-spacing: 4px;
+
+}
+
+.login {
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 11px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.login a {
+	color: #377ad0;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.right_box {
+	width: 575px;
+	float: right;
+}
+
+#facebook-con h1, #benefits h1 {
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#facebook-con:before, #benefits:before {
+	width: 150px;
+	height: 1px;
+	background: #6a6a6a;
+	content: "";
+	display: block;
+	margin-left: 20px;
+	margin-top: 10px;
+	position: absolute;
+	opacity: 0.5;
+}
+
+#facebook-con:after, #benefits:after {
+	width: 150px;
+	height: 1px;
+	background: #6a6a6a;
+	content: "";
+	display: block;
+	margin-left: 415px;
+	margin-top: -21px;
+	position: absolute;
+	float: right;
+	opacity: 0.5;
+}
+
+.fbl {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.fbl a {
+	text-decoration: none;
+}
+
+.fbl span {
+	font-size: 8px;
+	text-transform: uppercase;
+}
+
+#benefits ul li {
+	list-style: none;
+	display: inline-block;
+	background: rgba(0, 0, 0, .1);
+	padding: 10px;
+	width: 169px;
+	position: relative;
+	text-align: center;
+}
+
+#benefits:before, #benefits:after {
+	width: 100px;
+}
+
+#benefits:after {
+	margin-top: -94px;
+	margin-left: 450px;
+}
+
+#benefits .he {
+	font-weight: 500;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+#benefits li span {
+	color: rgba(0, 0, 0, .75);
+	text-align: center;
+}
+
+.tag {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 10px;
+}
