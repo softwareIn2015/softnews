@@ -1,17 +1,21 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 
 # Create your models here.
 class UserModel(models.Model):
-    Name = models.CharField(max_length=40, primary_key=True)#20个字符
+    Name = models.CharField(max_length=40, primary_key=True)#20赂枚脳脰路没
     Email = models.EmailField()
-    Password = models.CharField(max_length=20)#密码最长为20个字符
+    Password = models.CharField(max_length=20)#脙脺脗毛脳卯鲁陇脦陋20赂枚脳脰路没
 
 
 class CommentsModel(models.Model):
-    Text = models.TextField(verbose_name=u'评论内容')
+    Text = models.TextField(verbose_name=u'脝脌脗脹脛脷脠脻')
     User = models.ForeignKey(UserModel)
 
+class UrlsModel(models.Model):
+    Source = models.CharField(max_length=1000)
+    Urls = models.CharField(max_length=10000)
 
 class NewsModel(models.Model):
     Title = models.CharField(max_length=1000)
@@ -20,6 +24,4 @@ class NewsModel(models.Model):
     Comments = models.ForeignKey(CommentsModel)
 
 
-class UrlsModel(models.Model):
-    Source = models.CharField(max_length=1000)
-    Urls = models.CharField(max_length=10000)
+
