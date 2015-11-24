@@ -56,8 +56,8 @@
       <file leaf-file-name="contact.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news/templates/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3125">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.78125">
+              <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -72,7 +72,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/news/templates/detail.html" />
-        <option value="$PROJECT_DIR$/news/templates/contact.html" />
         <option value="$PROJECT_DIR$/softnews/settings.py" />
         <option value="$PROJECT_DIR$/softnews/urls.py" />
         <option value="$PROJECT_DIR$/news/templates/home.html" />
@@ -85,6 +84,7 @@
         <option value="$PROJECT_DIR$/news/templates/domestic.html" />
         <option value="$PROJECT_DIR$/news/templates/sports.html" />
         <option value="$PROJECT_DIR$/news/templates/military.html" />
+        <option value="$PROJECT_DIR$/news/templates/contact.html" />
       </list>
     </option>
   </component>
@@ -802,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3125">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.78125">
+          <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
           <folding />
         </state>
       </provider>
