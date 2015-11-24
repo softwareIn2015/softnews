@@ -13,7 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url,patterns
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from news.views import *
 import settings
@@ -21,16 +21,16 @@ import settings
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    (r'^news/home/$', news_home),
-    (r'^news/hot/$', hot_news),
-    (r'^news/social/$', social_news),
-    (r'^news/amusement/$', amusement_news),
-    (r'^news/international/$', international_news),
-    (r'^news/domestic/$', domestic_news),
-    (r'^news/sports/$', sports_news),
-    (r'^news/military/$', military_news),
-    (r'^news/contact/$', contact_news),
-    (r'^news/detail/$', detail_news),
+    (r'^news/home/$', homepage),
+    (r'^news/hot/$', hot_page),
+    (r'^news/social/$', social_page),
+    (r'^news/amusement/$', amusement_page),
+    (r'^news/international/$', international_page),
+    (r'^news/domestic/$', domestic_page),
+    (r'^news/sports/$', sports_page),
+    (r'^news/military/$', military_page),
+    (r'^news/contact/$', contact_page),
+    (r'^news/detail/$', detail_page),
     (r'^User/login/$', login),
     (r'^User/register/$', register),
 )

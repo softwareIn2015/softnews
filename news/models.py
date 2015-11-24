@@ -4,14 +4,14 @@ from django.db import models
 
 # Create your models here.
 class UserModel(models.Model):
-    Name = models.CharField(max_length=40, primary_key=True)#20¸ö×Ö·û
+    Name = models.CharField(max_length=40, primary_key=True)
     Email = models.EmailField()
-    Password = models.CharField(max_length=20)#ÃÜÂë×î³¤Îª20¸ö×Ö·û
-	
+    Password = models.CharField(max_length=20)
+
+
 class UrlsModel(models.Model):
     Source = models.CharField(max_length=1000)
     Urls = models.CharField(max_length=10000)
-
 
 
 class CommentsModel(models.Model):
@@ -24,4 +24,6 @@ class NewsModel(models.Model):
     Url = models.ForeignKey(UrlsModel)
     Summary = models.TextField()
     Comments = models.ForeignKey(CommentsModel)
+    Classification = models.CharField(max_length=1000)
+
 

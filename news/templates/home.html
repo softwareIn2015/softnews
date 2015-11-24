@@ -71,11 +71,7 @@ ddsmoothmenu.init({
                 	<ul>
                         <li><a href="/news/domestic/">国内新闻</a></li>
                         <li><a href="/news/military/">军事新闻</a></li>
-<<<<<<< HEAD
-                        <li><a href="/news/sportst/">体育新闻</a></li>
-=======
                         <li><a href="/news/sports/">体育新闻</a></li>
->>>>>>> f0bfd9e705642b6b3cf974089dd70b5750ddb67f
                   	</ul></li>
                 <li><a href="/User/login/">登录</a></li>
             </ul>
@@ -100,23 +96,21 @@ ddsmoothmenu.init({
     	
     	<div class="col_3">
         	<h2>热点</h2>
-            <p><em>"习马会"日程公布：记者会各30分钟</em></p>
-            <p>备受瞩目的习马会具体日程确定，据记者最新拿到的日程安排来看，两岸领导人将于北京时间7日15时起，进行约一小时闭门会谈。据人民日报消息，习近平和马英九将就推进两岸关系和平发展交换意见，探讨深化两岸各领域交流合作、增进两岸民众福祉等重大问题，以维护和进一步推动两岸关系和平发展。
-
-会后两岸将分别召开30分钟记者会，大陆在前，台方在后。这样安排，便于公众全面及时了解双方动态和立场，充分展现了两岸领导人的诚意。 </p>
-            <a href="#" class="more">More</a>
+            <p><em>{{hot.Title}}</em></p>
+            <p>{{hot.Summary}} </p>
+            <a href="/news/detail/?Title={{hot.Title}}" class="more">More</a>
         </div>
         <div class="col_3">
         	<h2>社会</h2>
-            <p><em>哈尔滨23岁女学生身患三种恶疾：给我点力量 我想成为天使 </em></p>
-            <p>生活报11月6日讯 如果不是因为身患重病，23岁的焉学萍会和她的同学们一样，身着白色护士装，穿梭在某个医院的病房之间，温柔耐心地护理病患。然而现在，原本就读于哈尔滨医科大学(大庆)护理专业2011级的她，却不得不休学一年多。系统性红斑狼疮、狼疮性肾炎以及双侧股骨头坏死，三样重病折磨得她"生不如死"。但为了父母，她要活下去，站起来，在她心里，依然有一个成为白衣天使的梦。</p>
-            <a href="#" class="more">More</a>	
+            <p><em>{{social.Title}} </em></p>
+            <p>{{hot.Summary}}</p>
+            <a href="/news/detail/?Title={{social.Title}}" class="more">More</a>
         </div>
         <div class="col_3 rmc">
         	<h2>娱乐</h2>
-            <p><em>86版《西游记》"白龙马"扮演者开卤菜店 揭当年演员现状</em></p>
-            <p>86版《西游记》被奉为经典是一代人的回忆，如今三十多年过去了，当年的演员们现在怎么样了呢？据悉，"小白龙"的扮演者王伯昭第一家卤菜店就要开张了，店内将卖盐水鹅。他称赚钱不是目的，而是想把自己觉得好的分享给更多人白龙"，拍戏之余，他爱好收藏、潜心笔墨。王伯昭说："到我这个年纪，赚多少钱不是目的，就想把自己觉得好的，分享给更多人。"王伯昭透露，第一家实体店近日就要开张了。</p>
-            <a href="#" class="more">More</a>	
+            <p><em>{{amusement.Ttitle}}</em></p>
+            <p>{{amusement.Summary}}</p>
+            <a href="/news/detail/?Title={{amusement.Title}}" class="more">More</a>
         </div>
         
         <div class="cleaner h60"></div>
@@ -124,45 +118,33 @@ ddsmoothmenu.init({
     	<div class="col_4">
         	<h3>国际新闻</h3>
             <ul>
-            	<li>新加坡：持中国护照符合条件可享自助通关</li>
-                <li>NASA发现可能有生命生活在火星地表下液态水中</li>
-                <li>英国伦敦反资本主义游行烧毁警车 3名警察受伤</li>
-                <li>日本前首相鸠山：安倍应有就错误致歉的勇气</li>
-                <li>法国海关捣毁数万假冒名牌产品 大部分来自亚洲</li>
-                <li>巴西东南部大坝决堤 1人遇难多人失踪</li>
+                {% for news in international_news %}
+            	    <li>{{news.Title}}</li>
+                {% endfor %}
             </ul>
 		</div>
         <div class="col_4">
         	<h3>国内新闻</h3>
             <ul>
-            	<li>冰城女孩陪跑四个月赚两万 小伙一年当23次伴郎</li>
-                <li>中方就远征军遗骸表态:不赞成任何个人组织安排</li>
-                <li>北京延庆冬奥赛区降下全市最大雪量</li>
-                <li>卫计委等5部要求控制公立医院医疗费不合理增长</li>
-                <li>广东省环保厅厅长李清涉嫌严重违纪被调查</li>
-                <li>习近平马英九吃饭将实行AA制</li>
+                {% for news in domestic_news %}
+            	    <li>{{news.Title}}</li>
+                {% endfor %}
             </ul>
         </div>
         <div class="col_4">
         	<h3>军事新闻</h3>
             <ul>
-            	<li>日本朝野反对自卫队巡航南海：菲越自己都不去</li>
-                <li>美称东风5B导弹只是临时补缺 但仍可突破美军反导 </li>
-                <li>习总罕见带一海军高级将领访问越南 与南海有关</li>
-                <li>中国神盾舰监视美国神盾舰 吨位不占优雷达更出色</li>
-                <li>俄称中美暗战吉隆坡中方完胜 美防长登航母欲雪耻</li>
-                <li>军方专家评C919：意义堪比歼20 发动机国产化漫长</li>
+                {% for news in military_news %}
+            	    <li>{{news.Title}}</li>
+                {% endfor %}
             </ul>
         </div>
         <div class="col_4 rmc">
         	<h3>体育</h3>
             <ul>
-            	<li>罗斯29分公牛主场险胜 杜兰特33+6雷霆三连败 </li>
-                <li>杜兰特:威少是雷霆最好的球员 让他控制比赛  </li>
-                <li>皮蓬晒奥巴马手写生日贺卡 总统记错日期?</li>
-                <li>库里最大前进动力竟是CP3 队友:宛如MJ战活塞 </li>
-                <li>掘金裁掉1人重签火箭旧将 帕帕4个月内二进宫 </li>
-                <li>TMZ:热火扣篮王曾流血并昏迷 病因仍不清楚 </li>
+                {% for news in sports_news %}
+            	    <li>{{news.Title}}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>      
@@ -176,14 +158,14 @@ ddsmoothmenu.init({
     
     <div id="templatemo_bottom" align="center">
     	<p><a href="http://www.gov.cn/" target="_blank">中国政府网</a> | <a href="http://www.china.com.cn" target="_blank">中国网</a> | <a href="http://www.people.com.cn/" target="_blank">人民网</a> | <a href="http://www.xinhuanet.com/" target="_blank">新华网</a> | <a href="http://www.chinanews.com/" target="_blank">中新网</a> | <a href="http://www.cctv.com/default.shtml" target="_blank">央视网</a> | <a href="http://www.cnr.cn/" target="_blank">中广网</a> |  <a href="http://www.chinadaily.com.cn/" target="_blank">中国日报</a> | <a href="http://www.cyol.net/node/index.htm" target="_blank">中青在线</a> | <a href="http://www.gmw.cn/" target="_blank">光明网</a> | <a href="http://www.chinamil.com.cn/" target="_blank">解放军报</a> | <a href="http://www.legaldaily.com.cn/" target="_blank">法制日报</a> | <a href="http://www.taiwan.cn/" target="_blank">中国台湾网</a> | <a href="http://www.ce.cn/" target="_blank">中经网</a> | <a href="http://www.nfcmag.com/" target="_blank">南风窗</a></p>
-  <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p>
-  <p><a href="http://www.neweekly.com.cn" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p>
-  <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p>
+        <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p>
+        <p><a href="http://www.neweekly.com.cn" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p>
+        <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p>
     
-    <div id="templatemo_footer">
-    	Copyright © HIT <a href="#">03107</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/news/contact/" target="_blank">意见反馈</a>
+        <div id="templatemo_footer">
+            Copyright © HIT <a href="#">03107</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/news/contact/" target="_blank">意见反馈</a>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

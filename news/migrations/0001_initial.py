@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='CommentsModel',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('Text', models.TextField(verbose_name='\xc6\xc0\xc2\xdb\xc4\xda\xc8\xdd')),
+                ('Text', models.TextField(verbose_name='\u8bc4\u8bba\u5185\u5bb9')),
             ],
         ),
         migrations.CreateModel(
@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('Title', models.CharField(max_length=1000)),
                 ('Summary', models.TextField()),
+                ('Classification', models.CharField(max_length=1000)),
                 ('Comments', models.ForeignKey(to='news.CommentsModel')),
             ],
         ),
