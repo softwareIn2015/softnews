@@ -35,31 +35,59 @@ def homepage(request):
 
 
 def hot_page(request):
-    return render_to_response("hot.html")
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("hot.html", locals())
 
 
 def social_page(request):
-    return render_to_response("social.html")
+    social_news = NewsModel.objects.filter(Classification='social')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("social.html", locals())
 
 
 def amusement_page(request):
-    return render_to_response("amusement.html")
+    amusement_news = NewsModel.objects.filter(Classification='amusement')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("amusement.html", locals())
 
 
 def international_page(request):
-    return render_to_response("international.html")
+    international_news = NewsModel.objects.filter(Classification='international')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("international.html", locals())
 
 
 def domestic_page(request):
-    return render_to_response("domestic.html")
+    domestic_news = NewsModel.objects.filter(Classification='domestic')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("domestic.html", locals())
 
 
 def sports_page(request):
-    return render_to_response("sports.html")
+    sports_news = NewsModel.objects.filter(Classification='sports')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("sports.html", locals())
 
 
 def military_page(request):
-    return render_to_response("military.html")
+    military_news = NewsModel.objects.filter(Classification='military')
+    all_news = NewsModel.objects.all()
+    all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    most_like = all_news[0]
+    return render_to_response("military.html", locals())
 
 
 def contact_page(request):

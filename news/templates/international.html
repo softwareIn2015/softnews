@@ -79,51 +79,20 @@ ddsmoothmenu.init({
     </div>  
     
     <div id="templatemo_content">
+        {% for news in international_news %}
     	<div class="post_box">
-                <h2>Donec in sapien lobortis elit</h2>
-               <img src="/static/images/templatemo_image_06.jpg"  alt="Image 06" />
-                <p><em>Suspendisse dignissim varius purus nec varius. Phasellus at justo tellus, quis porta quam.</em></p>
+            <a href="/news/detail/?Title={{news.Title}}">
+                <h2>{{news.Title}}</h2>
+                <img src="{{news.Image}}"  alt="{{news.Title}}" />
+                <p><em>{{news.Summary}}</em></p>
                 <p>Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>. Morbi venenatis augue sit amet ante facilisis feugiat sed in lectus. Vivamus imperdiet, ante a pretium vehicula, ante enim sodales mi, eu rutrum odio turpis eget arcu. Proin a elit nisl, id aliquam felis. Nunc ultrices iaculis quam, sed commodo erat tempus mollis. </p>
               	<div class="post_meta">
                 <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
                 <a href="blog_post.html" class="more float_r">Continue</a>
                 </div>
-            </div>
-            
-			<div class="post_box">
-                <h2> Fusce Placerat Ultrices Magna</h2>
-                <img src="/static/images/templatemo_image_07.jpg"  alt="Image" />
-                <p><em>Donec magna velit, hendrerit non aliquet vitae, sollicitudin non sem. Aliquam bibendum vulputate faucibus.</em></p>
-                <p>Mauris nisl mi, aliquet ac lobortis ut, tincidunt in tortor. Maecenas fermentum nisl vitae lectus dapibus pellentesque. Nunc viverra vestibulum magna, nec dignissim turpis rhoncus tincidunt. Donec ac nibh arcu. Suspendisse potent vehicula eget lacus. Aliquam quis tincidunt quam.</p>
-                <div class="post_meta">
-                <span class="cat">Posted in <a href="#">3D</a>, <a href="#">Interactive</a></span> | Date: June 23, 2048 |  <a href="#">156 comments</a>
-                <a href="blog_post.html" class="more float_r">Continue</a>
-                </div>
-          </div>
-            
-			<div class="post_box">
-                <h2>Nullam Volutpat Metus Eget</h2>
-                <img src="/static/images/templatemo_image_08.jpg"  alt="Image" />
-                <p><em>Vivamus sit amet scelerisque orci. Nullam elit enim, dignissim lobortis rutrum non, ultricies vitae erat.</em></p>
-                <p> Proin lobortis tellus ac tellus sollicitudin feugiat et at nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus adipiscing arcu ac erat pretium eget aliquet magna bibendum. Donec convallis sapien ac ipsum mollis aliquam.  </p>
-                <div class="post_meta">
-                <span class="cat">Posted in <a href="#">Marketing</a>, <a href="#">Advertising</a></span> | Date: June 15, 2048 | <a href="#">184 comments</a>
-                <a href="blog_post.html" class="more float_r">Continue</a>
-                </div>
-          	</div>
-          	<div class="templatemo_paging">
-            	<ul>
-                	<li><a href="#" target="_parent">Previous</a></li>
-                    <li><a href="http://www.cssmoban.com/" target="_parent">1</a></li>
-                    <li><a href="#" target="_parent">2</a></li>
-                    <li><a href="#" target="_parent">3</a></li>
-                    <li><a href="#" target="_parent">4</a></li>
-                    <li><a href="#" target="_parent">5</a></li>
-                    <li><a href="#" target="_parent">6</a></li>
-                    <li><a href="#" target="_parent">Next</a></li>
-				</ul>
-                <div class="cleaner"></div>
-    	 	</div>    
+            </a>
+        </div>
+        {% endfor %}
 
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">
@@ -142,13 +111,10 @@ ddsmoothmenu.init({
         
         <div class="sb_box">
         	<h3>热点推荐</h3>
-           	 <h4>放大招了，2016年四大卫视的重头剧都在这</h4>
-             <p>江苏卫视
-
-江苏台明年将继续主打大剧战略和独播战略，囤积储备了近20部剧目。类型题材涵盖各个类型。它们还要推出周播剧战略，拟定于周三周四晚间播出。播出剧目时间均未定。主打剧 放大招了，2016年四大卫视的重头剧都在这《胭脂》 《女医明妃传》 《白鹿原》放大招了，2016年四大卫视的重头剧都在这《微微一笑很倾城》《锦绣未央》《秀丽江山之长歌行》锦绣缘璀璨年华》</p>
+           	 <h4>{{most_like.Title}}</h4>
+             <p>{{most_like.Summary}}</p>
             <div class="cleaner"></div>
-            <cite>Edward <a href="#"><span>- Flash Designer</span></a></cite>
-            <a href="#" class="more">More</a>
+            <a href="/news/detail/?Title={{most_like.Title}}" class="more">More</a>
         </div>
         
 	</div> <!-- end of sidebar -->

@@ -25,5 +25,7 @@ class NewsModel(models.Model):
     Summary = models.TextField()
     Comments = models.ForeignKey(CommentsModel)
     Classification = models.CharField(max_length=1000)
+    Image = models.CharField(max_length=1000)
+    Likes = models.IntegerField(verbose_name=u'点赞数', max_length=10000)
 
 
