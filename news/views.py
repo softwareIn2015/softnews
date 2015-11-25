@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Create your views here.
-from django.template import Context
-from django.shortcuts import render_to_response
+from django.template import Context, RequestContext
+from django.shortcuts import render_to_response, render
+from django.http import HttpResponse, HttpResponseRedirect
 from models import *
-
 
 def homepage(request):
     hot_news = NewsModel.objects.filter(Classification='hot')
@@ -98,10 +98,61 @@ def detail_page(request):
     return render_to_response("detail.html")
 
 
-def login(request):
-    return render_to_response("login.html")
-
-
 def register(request):
-    return render_to_response("register.html")
+    if request.method == 'POST':
+        post = request.POST
+        result_regist = {"status": False, "data":""}
+        regist_Name = post['name']
+        regist_Email = post['email']
+        regist_Password = post['password']
+
+        if regist_Name == "" or regist_Name.isspace():
+             result_regist = {"status": False, "data":"用户名不为空"}
+        else:
+            if regist_Email == "" or regist_Email.isspace():
+                 result_regist = {"status": False, "data":"邮箱不能为空"}
+            else:
+                if regist_Password == "" or regist_Password.isspace():
+                    result_regist = {"status": False, "data":"密码不能为空"}
+                else:
+                    new_user = UserModel(
+                        Name = regist_Name,
+                        Email = regist_Email,
+                        Password = regist_Password)
+                    new_user.save()
+                    result_regist = {"status": True, "data":"注册成功"}
+                    return HttpResponseRedirect('/User/login/', locals())
+
+
+    return render_to_response("register.html", locals())
+
+def login(request):
+    if request.method == 'POST':
+        post = request.POST
+        # 用什么来验证？？这是一个问题
+        if post:
+            Name = post['name']
+            Password = post['password']
+            result = {"status": False, "data":""}
+            if Name == "" or Name.isspace():
+                result = {"status": False, "data": "用户名不能为空"}
+            else:
+                if Password == "" or Password.isspace():
+                    result = {"status": False, "data":"密码不能为空"}
+                else:
+                    user = UserModel.objects.filter(Name = Name, Password = Password)
+                    if user:
+                        #登录成功
+                        result = {"status": True, "data":"登录成功"}
+                        response = HttpResponseRedirect('/news/home/', locals())
+                        response.set_cookie('username',Name,3600)  #写入cookie
+                        return response
+                    else:
+                        result = {"status": False, "data":"用户名或密码错误"}
+                        return HttpResponseRedirect('/User/login/',  locals())
+
+    return render_to_response('login.html', locals())
+
+
+
 
