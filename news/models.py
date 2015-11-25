@@ -22,10 +22,5 @@ class CommentsModel(models.Model):
 class NewsModel(models.Model):
     Title = models.CharField(max_length=1000)
     Url = models.ForeignKey(UrlsModel)
-    Summary = models.TextField()
-    Comments = models.ForeignKey(CommentsModel)
     Classification = models.CharField(max_length=1000)
-    Image = models.CharField(max_length=1000)
-    Likes = models.IntegerField(verbose_name=u'点赞数', max_length=10000)
-
-
+    Summary = models.TextField()
