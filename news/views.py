@@ -7,6 +7,7 @@ from models import *
 
 
 def homepage(request):
+    username = request.COOKIES.get('username', '')
     hot_news = NewsModel.objects.filter(Classification='hot')
     hot = hot_news[0]#只使用热门新闻的第一个
 
@@ -40,6 +41,7 @@ def hot_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    most_like = hot_news[1]
     return render_to_response("hot.html", locals())
 
 
@@ -48,6 +50,8 @@ def social_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("social.html", locals())
 
 
@@ -56,6 +60,8 @@ def amusement_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("amusement.html", locals())
 
 
@@ -64,6 +70,8 @@ def international_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("international.html", locals())
 
 
@@ -72,6 +80,8 @@ def domestic_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("domestic.html", locals())
 
 
@@ -80,6 +90,8 @@ def sports_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("sports.html", locals())
 
 
@@ -88,6 +100,8 @@ def military_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("military.html", locals())
 
 
@@ -143,13 +157,14 @@ def login(request):
                     user = UserModel.objects.filter(Name=Name, Password=Password)
                     if user:
                         #登录成功
-                        result = {"status": True, "data":"登录成功"}
+                        result = {"status": True, "data": "登录成功"}
                         response = HttpResponseRedirect('/news/home/', locals())
                         response.set_cookie('username', Name, 3600)  #写入cookie
                         return response
                     else:
-                        result = {"status": False, "data":"用户名或密码错误"}
-                        return HttpResponseRedirect('/User/login/', locals())
+                        result = {"status": False, "data": "用户名或密码错误"}
+                        response = HttpResponseRedirect('/User/login/', locals())
+                        return response
 
     return render_to_response('login.html', locals())
 

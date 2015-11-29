@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>工大最新闻-热点</title>
+<title>中国好新闻-热点</title>
 <meta name="keywords" content="newspaper, portfolio, free theme, black and white, website design, CSS, HTML" />
 <meta name="description" content="Newspaper, Portfolio, free theme by templatemo.com" />
 <link href="/static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -107,10 +107,10 @@ $(document).ready(function() {
 	<div id="templatemo_content">
         <strong>
             {% for news in hot_news %}
-                <a href="/news/detail/?Title={{news.Title}}">
+                <a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">
                     <h3><li>{{news.Title}}</li></h3>
                     <div class="cleaner h20"></div>
-                    <img src="{{news.Image}}"  alt="{{news.Title}}" />
+                    <img src="{{news.Image}}"  alt="{{news.image}}" />
                     <div class="cleaner h20"></div>
                 </a>
             {% endfor %}

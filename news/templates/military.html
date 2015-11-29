@@ -79,9 +79,9 @@ ddsmoothmenu.init({
     </div>  
     
     <div id="templatemo_content">
-        {% for news in international_news %}
+        {% for news in military_news %}
     	<div class="post_box">
-            <a href="/news/detail/?Title={{news.Title}}">
+            <a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">
                 <h2>{{news.Title}}</h2>
                 <img src="{{news.Image}}"  alt="{{news.Title}}" />
                 <p><em>{{news.Summary}}</em></p>
