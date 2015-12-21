@@ -89,8 +89,8 @@ ddsmoothmenu.init({
     <div id="content_top">
         <div id="page_title"> 中国好新闻</div>
         <div id="search_box">
-            <form action="#" method="get">
-                <input type="text" value="Search" name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+            <form action="/news/search/" method="post">
+                <input type="text" value="Search" name="searchInfo" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
                 <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
             </form>
         </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>中国好新闻-国际</title>
-<meta name="keywords" content="newspaper, blog theme, black, white, red, website templates, CSS, HTML" />
-<meta name="description" content="Newspaper Blog Theme, free CSS template from www.cssmoban.com" />
+<title>中国好新闻-搜索结果</title>
+<meta name="keywords" content="newspaper, theme, free templates, contact form, CSS, HTML" />
+<meta name="description" content="Newspaper Theme, Contact Page, Contact Form, free Template from www.cssmoban.com" />
 <link href="/static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
 
 <script language="javascript" type="text/javascript">
@@ -51,24 +51,30 @@ ddsmoothmenu.init({
         </div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-              	<li><a href="/news/home/" >主页</a></li>
+              	<li><a href="/news/home/" class="selected">主页</a></li>
           		<li><a href="/news/hot/">热点</a></li>
           		<li><a href="/news/social/">社会</a></li>
                 <li><a href="/news/amusement/">娱乐</a></li>
-                <li><a href="/news/international/" class="selected">国际</a></li>
+                <li><a href="/news/international/">国际</a></li>
                 <li><a href="">更多</a>
                 	<ul>
                         <li><a href="/news/domestic/">国内新闻</a></li>
                         <li><a href="/news/military/">军事新闻</a></li>
                         <li><a href="/news/sports/">体育新闻</a></li>
                   	</ul></li>
-                <li><a href="/User/login/">登录</a></li>
+               <li><a href="">{{username}}</a>
+                    <ul>
+                     <li><a href="">用户信息</a> </li>
+                        <li><a href="/User/logout/">退出登录</a> </li>
+                    </ul>
+                </li>
             </ul>
+            <br style="clear: left" />
         </div> <!-- end of templatemo_menu -->
     </div> <!-- end of header -->
     
     <div id="content_top">
-        <div id="page_title">国际</div>
+        <div id="page_title">搜索结果</div>
         <div id="search_box">
             <form action="/news/search/" method="post">
                 <input type="text" value="Search" name="searchInfo" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
@@ -79,42 +85,33 @@ ddsmoothmenu.init({
     </div>  
     
     <div id="templatemo_content">
-        {% for news in international_news %}
-    	<div class="post_box">
-            <a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">
-                <h2>{{news.Title}}</h2>
-                <img src="{{news.Image}}"  alt="{{news.Title}}" />
-                <p><em>{{news.Summary}}</em></p>
-                <p>Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>. Morbi venenatis augue sit amet ante facilisis feugiat sed in lectus. Vivamus imperdiet, ante a pretium vehicula, ante enim sodales mi, eu rutrum odio turpis eget arcu. Proin a elit nisl, id aliquam felis. Nunc ultrices iaculis quam, sed commodo erat tempus mollis. </p>
-              	<div class="post_meta">
-                <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
-                <a href="blog_post.html" class="more float_r">Continue</a>
-                </div>
-            </a>
-        </div>
+        {% for news in searchNews %}
+        <li><a href="/news/detail/?{{news.Title}}" style="text-decoration:none;"><h4>{{news.Title}}</h4></a></li>
         {% endfor %}
-
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">
-    	
         <div class="sb_box">
         	<h3>相关内容</h3>
             <ul class="sb_list">
-                <li><a href="/news/domestic/">国内新闻</a></li>
-                <li><a href="/news/hot/">新闻热点</a></li>
-                <li><a href="/news/social/">社会头条</a></li>
-                <li><a href="/news/military/">军事新闻</a></li>
-                <li><a href="/news/sports/">体育快讯</a></li>
-                <li><a href="/news/amusement/">娱乐头条</a></li>
+            	<li><a href="international.html">国际新闻</a></li>
+                <li><a href="domestic.html">国内新闻</a></li>
+                <li><a href="hot.hyml">新闻热点</a></li>
+                <li><a href="social.html">社会头条</a></li>
+                <li><a href="military.html">军事新闻</a></li>
+                <li><a href="sports.html">体育快讯</a></li>
+                <li><a href="amusement.html">娱乐头条</a></li>
 			</ul>
         </div>
         
-        <div class="sb_box">
+       <div class="sb_box">
         	<h3>热点推荐</h3>
-           	 <h4>{{most_like.Title}}</h4>
-             <p>{{most_like.Summary}}</p>
+           	 <h4>放大招了，2016年四大卫视的重头剧都在这</h4>
+             <p>江苏卫视
+
+江苏台明年将继续主打大剧战略和独播战略，囤积储备了近20部剧目。类型题材涵盖各个类型。它们还要推出周播剧战略，拟定于周三周四晚间播出。播出剧目时间均未定。主打剧 放大招了，2016年四大卫视的重头剧都在这《胭脂》 《女医明妃传》 《白鹿原》放大招了，2016年四大卫视的重头剧都在这《微微一笑很倾城》《锦绣未央》《秀丽江山之长歌行》锦绣缘璀璨年华》</p>
             <div class="cleaner"></div>
-            <a href="/news/detail/?Title={{most_like.Title}}" class="more">More</a>
+            <a href="#" class="more">More</a>
+        </div>
         </div>
         
 	</div> <!-- end of sidebar -->
@@ -125,10 +122,9 @@ ddsmoothmenu.init({
   <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p>
   <p><a href="http://www.neweekly.com.cn" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p>
   <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p>
-    </div>
     
     <div id="templatemo_footer">
-    	Copyright © HIT <a href="#">03107</a>
+    	Copyright@HIT <a href="#">03107</a>
     </div>
 </div>
 
