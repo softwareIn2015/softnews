@@ -7,7 +7,7 @@ from models import *
 
 
 def homepage(request):
-    username = request.COOKIES.get('username', '')
+    username = request.COOKIES.get('username','')  #读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
     hot = hot_news[0]#只使用热门新闻的第一个
 
@@ -32,8 +32,10 @@ def homepage(request):
     sports_news = NewsModel.objects.filter(Classification='sports')
     if len(sports_news) > 6:#只保留前六个
         sports_news = sports_news[0:6]
-
-    return render_to_response('home.html', locals())
+    if len(username) > 0:
+        return render_to_response('home.html', locals())
+    else:
+        return render_to_response('login.html')
 
 
 def hot_page(request):
