@@ -6,6 +6,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from models import *
 
 
+def search(request):
+    username = request.COOKIES.get('username', '')  #读取cookie
+    post = request.POST
+    newsInfo = post['searchInfo']
+    searchNews = NewsModel.objects.filter(Title__contains=newsInfo)
+    if searchNews:
+      return render_to_response("search.html", locals())
+    else:
+        response = HttpResponse('未搜索到')
+        return response
+
+
 def homepage(request):
     username = request.COOKIES.get('username', '')  #读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
