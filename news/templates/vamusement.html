@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>中国好新闻-国际</title>
+<title>中国好新闻-娱乐</title>
 <meta name="keywords" content="newspaper, blog theme, black, white, red, website templates, CSS, HTML" />
 <meta name="description" content="Newspaper Blog Theme, free CSS template from www.cssmoban.com" />
 <link href="/static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -54,26 +54,21 @@ ddsmoothmenu.init({
               	<li><a href="/news/home/" >主页</a></li>
           		<li><a href="/news/hot/">热点</a></li>
           		<li><a href="/news/social/">社会</a></li>
-                <li><a href="/news/amusement/">娱乐</a></li>
-                <li><a href="/news/international/" class="selected">国际</a></li>
+                <li><a href="/news/amusement/" class="selected">娱乐</a></li>
+                <li><a href="/news/international/">国际</a></li>
                 <li><a href="">更多</a>
                 	<ul>
                         <li><a href="/news/domestic/">国内新闻</a></li>
                         <li><a href="/news/military/">军事新闻</a></li>
                         <li><a href="/news/sports/">体育新闻</a></li>
                   	</ul></li>
-                 <li><a href="">{{username}}</a>
-                    <ul>
-                     <li><a href="">用户信息</a> </li>
-                        <li><a href="/User/logout/">退出登录</a> </li>
-                    </ul>
-                </li>
+                <li><a href="/User/login/">登录</a></li>
             </ul>
         </div> <!-- end of templatemo_menu -->
     </div> <!-- end of header -->
     
     <div id="content_top">
-        <div id="page_title">国际</div>
+        <div id="page_title">娱乐</div>
         <div id="search_box">
             <form action="#" method="get">
                 <input type="text" value="Search" name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
@@ -84,13 +79,13 @@ ddsmoothmenu.init({
     </div>  
     
     <div id="templatemo_content">
-        {% for news in international_news %}
+        {% for news in amusement_news %}
     	<div class="post_box">
             <a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">
                 <h2>{{news.Title}}</h2>
                 <img src="{{news.Image}}"  alt="{{news.Title}}" />
                 <p><em>{{news.Summary}}</em></p>
-                <p>Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>. Morbi venenatis augue sit amet ante facilisis feugiat sed in lectus. Vivamus imperdiet, ante a pretium vehicula, ante enim sodales mi, eu rutrum odio turpis eget arcu. Proin a elit nisl, id aliquam felis. Nunc ultrices iaculis quam, sed commodo erat tempus mollis. </p>
+      
               	<div class="post_meta">
                 <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
                 <a href="blog_post.html" class="more float_r">Continue</a>
@@ -98,19 +93,18 @@ ddsmoothmenu.init({
             </a>
         </div>
         {% endfor %}
-
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">
     	
         <div class="sb_box">
         	<h3>相关内容</h3>
             <ul class="sb_list">
+            	<li><a href="/news/international/">国际新闻</a></li>
                 <li><a href="/news/domestic/">国内新闻</a></li>
                 <li><a href="/news/hot/">新闻热点</a></li>
                 <li><a href="/news/social/">社会头条</a></li>
                 <li><a href="/news/military/">军事新闻</a></li>
                 <li><a href="/news/sports/">体育快讯</a></li>
-                <li><a href="/news/amusement/">娱乐头条</a></li>
 			</ul>
         </div>
         

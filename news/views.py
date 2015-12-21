@@ -7,7 +7,7 @@ from models import *
 
 
 def homepage(request):
-    username = request.COOKIES.get('username','')  #读取cookie
+    username = request.COOKIES.get('username', '')  #读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
     hot = hot_news[0]#只使用热门新闻的第一个
 
@@ -35,84 +35,231 @@ def homepage(request):
     if len(username) > 0:
         return render_to_response('home.html', locals())
     else:
-        return render_to_response('login.html')
+        response = HttpResponseRedirect('/news/vhome/', locals())
+        return response
+
+
+def vhomepage(request):
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    hot = hot_news[0]#只使用热门新闻的第一个
+
+    social_news = NewsModel.objects.filter(Classification='social')
+    social = social_news[0]#只使用社会新闻的第一个
+
+    amusement_news = NewsModel.objects.filter(Classification='amusement')
+    amusement = amusement_news[0]#只使用娱乐新闻的第一个
+
+    international_news = NewsModel.objects.filter(Classification='international')
+    if len(international_news) > 6:#只保留前六个
+        international_news = international_news[0:6]
+
+    domestic_news = NewsModel.objects.filter(Classification='domestic')
+    if len(domestic_news) > 6:#只保留前六个
+        domestic_news = domestic_news[0:6]
+
+    military_news = NewsModel.objects.filter(Classification='military')
+    if len(military_news) > 6:#只保留前六个
+        military_news = military_news[0:6]
+
+    sports_news = NewsModel.objects.filter(Classification='sports')
+    if len(sports_news) > 6:#只保留前六个
+        sports_news = sports_news[0:6]
+    return render_to_response('vhome.html', locals())
 
 
 def hot_page(request):
+    username = request.COOKIES.get('username','')  #读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     most_like = hot_news[1]
-    return render_to_response("hot.html", locals())
+    if len(username) > 0:
+        return render_to_response("hot.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vhot/', locals())
+        return response
+
+
+def vhot_page(request):
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    most_like = hot_news[1]
+    return render_to_response("vhot.html", locals())
 
 
 def social_page(request):
+    username = request.COOKIES.get('username','')  #读取cookie
     social_news = NewsModel.objects.filter(Classification='social')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("social.html", locals())
+    if len(username) > 0:
+        return render_to_response("social.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vsocial/', locals())
+        return response
+
+
+def vsocial_page(request):
+    social_news = NewsModel.objects.filter(Classification='social')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vsocial.html", locals())
 
 
 def amusement_page(request):
+    username = request.COOKIES.get('username','')  #读取cookie
     amusement_news = NewsModel.objects.filter(Classification='amusement')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("amusement.html", locals())
+    if len(username) > 0:
+        return render_to_response("amusement.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vamusement/', locals())
+        return response
+
+
+def vamusement_page(request):
+    amusement_news = NewsModel.objects.filter(Classification='amusement')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vamusement.html", locals())
 
 
 def international_page(request):
+    username = request.COOKIES.get('username', '')  #读取cookie
     international_news = NewsModel.objects.filter(Classification='international')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("international.html", locals())
+    if len(username) > 0:
+        return render_to_response("international.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vinternational/', locals())
+        return response
+
+
+def vinternational_page(request):
+    international_news = NewsModel.objects.filter(Classification='international')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vinternational.html", locals())
 
 
 def domestic_page(request):
+    username = request.COOKIES.get('username', '')  #读取cookie
     domestic_news = NewsModel.objects.filter(Classification='domestic')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("domestic.html", locals())
+    if len(username):
+        return render_to_response("domestic.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vdomestic/', locals())
+        return response
+
+
+def vdomestic_page(request):
+    domestic_news = NewsModel.objects.filter(Classification='domestic')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vdomestic.html", locals())
 
 
 def sports_page(request):
+    username = request.COOKIES.get('username', '')  #读取cookie
     sports_news = NewsModel.objects.filter(Classification='sports')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("sports.html", locals())
+    if len(username):
+        return render_to_response("sports.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vsports/', locals())
+        return response
+
+
+def vsports_page(request):
+    sports_news = NewsModel.objects.filter(Classification='sports')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vsports.html", locals())
 
 
 def military_page(request):
+    username = request.COOKIES.get('username', '')  #读取cookie
     military_news = NewsModel.objects.filter(Classification='military')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
-    return render_to_response("military.html", locals())
+    if len(username):
+        return render_to_response("military.html", locals())
+    else:
+        response = HttpResponseRedirect('/news/vmilitary/', locals())
+        return response
+
+
+def vmilitary_page(request):
+    military_news = NewsModel.objects.filter(Classification='military')
+    # all_news = NewsModel.objects.all()
+    # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
+    # most_like = all_news[0]
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
+    return render_to_response("vmilitary.html", locals())
 
 
 def contact_page(request):
-    return render_to_response("contact.html")
+    username = request.COOKIES.get('username', '')  #读取cookie
+    if len(username):
+        return render_to_response("contact.html", locals())
+    else:
+       response = HttpResponse('请先登录')
+       return response
 
 
 def detail_page(request):
-    return render_to_response("detail.html")
+    username = request.COOKIES.get('username', '')  #读取cookie
+    if len(username):
+        return render_to_response("detail.html")
+    else:
+        response = HttpResponseRedirect('/news/vdetail/', locals())
+        return response
+
+
+def vdetail_page(request):
+    return render_to_response("vdetail.html")
 
 
 def register(request):
@@ -171,5 +318,9 @@ def login(request):
     return render_to_response('login.html', locals())
 
 
+def logout(request):
+     response = HttpResponseRedirect('/User/login/', locals())
+     response.delete_cookie('username')
+     return response
 
 
