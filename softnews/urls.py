@@ -35,6 +35,7 @@ urlpatterns = patterns('',
     (r'^User/register/$', register),
     (r'^User/logout/$', logout),
     (r'^news/search/$', search),
+    (r'^news/add_comment/$', add_comment),
     # visitor model
     (r'^news/vhome/$', vhomepage),
     (r'^news/vhot/$', vhot_page),

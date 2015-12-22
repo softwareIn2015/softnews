@@ -267,7 +267,7 @@ def detail_page(request):
     news = NewsModel.objects.get(Title=title)
     if len(username):
         #新闻与评论的内外键，查询到评论内容
-        comments = CommentsModel.objects.fliter()
+        comments = CommentsModel.objects.filter(News__Title=title)
         return render_to_response("detail.html", locals())
     else:
         response = HttpResponseRedirect('/news/vdetail/', locals())
@@ -281,13 +281,18 @@ def vdetail_page(request):
 def add_comment(request):
     post = request.POST
     username = request.COOKIES.get('username', '')
+    user = UserModel.objects.get(Name=username)
+    title = post['sendtitle']
+    news = NewsModel.objects.get(Title=title)
     new_comment = CommentsModel(
-        User=username,
-        Text=post['message']
+        User=user,
+        Text=post['text'],
+        News=news
     )
     new_comment.save()
-    response = HttpResponseRedirect('/news/detail/', locals())
-    return response
+    #response = HttpResponseRedirect('/news/detail/', locals())
+    #return response
+    return render_to_response("detail.html", locals())
 
 
 def register(request):

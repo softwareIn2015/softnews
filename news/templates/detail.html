@@ -104,9 +104,9 @@ ddsmoothmenu.init({
     
     <div id="templatemo_content">
        <div class="post_box">
-                <h2>APEC峰会期间习近平与阿基诺将"比邻而坐"</h2>
-                <img src="/static/images/apec.jpg"  alt="apec" />
-                <p>据菲律宾《商报》11月13日报道，亚太经合会议(APEC)第23次领导人非正式会议将于11月18日至19日在菲律宾马尼拉举行。阿基诺总统将在许多场合与中国国家主席习近平比邻而坐。</p>
+                <h2>{{news.Title}}</h2>
+                <img src="{{news.Image}}"  alt="apec" />
+                <p>{{news.Summary}}</p>
               	<div class="post_meta">
                 <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
                 <a href="blog_post.html" class="more float_r">Continue</a>
@@ -128,10 +128,9 @@ ddsmoothmenu.init({
         </div>
   		<h3>添加评论</h3>
          <div id="contact_form">
-            <form method="post" name="contact" action="#">
-                <div class="cleaner h20"></div>
+            <form method="post" name="contact" action="/news/add_comment/">
                 <label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
-                <div class="cleaner h20"></div>
+                <input type="hidden" value="{{title}}" name="sendtitle"/>
                 <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" /> 
             </form>
         </div> 
@@ -155,13 +154,13 @@ ddsmoothmenu.init({
             <h3>评论列表：</h3>
             <form action=" " method="get">
                 <table border="0"  width="280" >
-                    <tr><td align="left"><h4>用户名</h4></td>
+                    {% for comment in comments %}
+                    <tr><td align="left"><h4>{{comment.User.Name}}:</h4></td>
                     </tr>
                     <tr>
-                        <h5>
-                        <td height="20">这条新闻实在是太好了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</td>
-                        </h5>
+                        <td><h5>{{comment.Text}}</h5></td>
                     </tr>
+                    {% endfor %}
                 </table>
             </form>
             </div>

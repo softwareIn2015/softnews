@@ -14,19 +14,18 @@ class Migration(migrations.Migration):
             name='CommentsModel',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('Text', models.TextField(verbose_name='\u8bc4\u8bba\u5185\u5bb9')),
+                ('Text', models.TextField()),
             ],
         ),
         migrations.CreateModel(
             name='NewsModel',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('Title', models.CharField(max_length=1000)),
-                ('Summary', models.TextField()),
-                ('Classification', models.CharField(max_length=1000)),
-                ('Image', models.CharField(max_length=1000)),
-                ('Likes', models.IntegerField(max_length=10000, verbose_name='\u70b9\u8d5e\u6570')),
-                ('Comments', models.ForeignKey(to='news.CommentsModel')),
+                ('Title', models.CharField(max_length=100)),
+                ('Classification', models.CharField(max_length=10)),
+                ('Summary', models.CharField(max_length=1000)),
+                ('Image', models.CharField(default=None, max_length=1000)),
+                ('Likes', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
@@ -35,6 +34,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('Source', models.CharField(max_length=1000)),
                 ('Urls', models.CharField(max_length=10000)),
+                ('News', models.ForeignKey(to='news.NewsModel')),
             ],
         ),
         migrations.CreateModel(
@@ -46,9 +46,9 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='newsmodel',
-            name='Url',
-            field=models.ForeignKey(to='news.UrlsModel'),
+            model_name='commentsmodel',
+            name='News',
+            field=models.ForeignKey(to='news.NewsModel'),
         ),
         migrations.AddField(
             model_name='commentsmodel',
