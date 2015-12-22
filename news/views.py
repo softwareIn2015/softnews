@@ -263,8 +263,12 @@ def contact_page(request):
 
 def detail_page(request):
     username = request.COOKIES.get('username', '')  #读取cookie
+    title = request.GET['Title']
+    news = NewsModel.objects.get(Title=title)
     if len(username):
-        return render_to_response("detail.html")
+        #新闻与评论的内外键，查询到评论内容
+        comments = CommentsModel.objects.fliter()
+        return render_to_response("detail.html", locals())
     else:
         response = HttpResponseRedirect('/news/vdetail/', locals())
         return response
@@ -272,6 +276,18 @@ def detail_page(request):
 
 def vdetail_page(request):
     return render_to_response("vdetail.html")
+
+
+def add_comment(request):
+    post = request.POST
+    username = request.COOKIES.get('username', '')
+    new_comment = CommentsModel(
+        User=username,
+        Text=post['message']
+    )
+    new_comment.save()
+    response = HttpResponseRedirect('/news/detail/', locals())
+    return response
 
 
 def register(request):
