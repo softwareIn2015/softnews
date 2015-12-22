@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="171faf11-0c7a-4117-9cf8-7e69c9dcdc2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/news/templates/vdomestic.html" />
-      <change type="DELETED" beforePath="C:\Users\majingyi\Desktop\n\softnews\news\templates\vdomestric.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/news/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/detail.html" afterPath="$PROJECT_DIR$/news/templates/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/home.html" afterPath="$PROJECT_DIR$/news/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/models.py" afterPath="$PROJECT_DIR$/news/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/search.html" afterPath="$PROJECT_DIR$/news/templates/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softnews/settings.py" afterPath="$PROJECT_DIR$/softnews/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softnews/urls.py" afterPath="$PROJECT_DIR$/softnews/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="softnews.iws" />
@@ -53,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.264706">
-              <caret line="132" column="70" selection-start-line="132" selection-start-column="61" selection-end-line="132" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.5387454">
+              <caret line="130" column="96" selection-start-line="130" selection-start-column="96" selection-end-line="130" selection-end-column="96" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#h2#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -144,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41512915">
+            <state vertical-scroll-proportion="8.823529">
               <caret line="126" column="52" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="52" />
               <folding />
             </state>
@@ -209,8 +200,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="290" />
-    <option name="y" value="32" />
+    <option name="x" value="199" />
+    <option name="y" value="31" />
     <option name="width" value="1370" />
     <option name="height" value="714" />
   </component>
@@ -569,15 +560,22 @@
       <option name="project" value="LOCAL" />
       <updated>1450767919615</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="完善评论问题">
+      <created>1450797519529</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1450797519529</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="290" y="32" width="1370" height="714" extended-state="0" />
+    <frame x="199" y="31" width="1370" height="714" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17799114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -588,7 +586,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -615,7 +612,8 @@
     <MESSAGE value="完善搜索功能，注意保存（之前就没保存，又重写了。。）" />
     <MESSAGE value="添加之前没添加的访客模式的主页和热点" />
     <MESSAGE value="编写评论的部分，缺少新闻与评论的内外键关系，改变需要更改数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="编写评论的部分，缺少新闻与评论的内外键关系，改变需要更改数据库" />
+    <MESSAGE value="完善评论问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善评论问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -992,21 +990,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
+    <entry file="file://$PROJECT_DIR$/news/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.264706">
-          <caret line="132" column="70" selection-start-line="132" selection-start-column="61" selection-end-line="132" selection-end-column="70" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#h2#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="8.823529">
+          <caret line="126" column="52" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41512915">
-          <caret line="126" column="52" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="52" />
-          <folding />
+        <state vertical-scroll-proportion="0.5387454">
+          <caret line="130" column="96" selection-start-line="130" selection-start-column="96" selection-end-line="130" selection-end-column="96" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#h2#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

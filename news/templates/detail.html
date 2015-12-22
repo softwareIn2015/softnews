@@ -128,7 +128,7 @@ ddsmoothmenu.init({
         </div>
   		<h3>添加评论</h3>
          <div id="contact_form">
-            <form method="post" name="contact" action="/news/add_comment/">
+            <form method="post" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
                 <label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
                 <input type="hidden" value="{{title}}" name="sendtitle"/>
                 <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" /> 
