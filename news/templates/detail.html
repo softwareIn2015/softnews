@@ -52,12 +52,17 @@ ddsmoothmenu.init({
        Num++;
     obj.find('span').text(Num);
   });
-   
-   
   return false;
  });
  });
  </script>
+    <script type="text/javascript">
+        $(function(){
+        $("#content_submit").submit(function()){
+          window.reload();
+        });
+     });
+    </script>
 </head>
 
 <body>
@@ -126,14 +131,16 @@ ddsmoothmenu.init({
                 <li><a href="http://www.cnwest.com/" target="_blank">西部网</a>&nbsp;<a href="http://news.cnwest.com/content/2015-11/13/content_13330662.htm" target="_blank">http://news.cnwest.com/content/2015-11/13/content_13330662.htm</a></li>
 			</ul>
         </div>
+       <div class="sb_box">
   		<h3>添加评论</h3>
          <div id="contact_form">
-            <form method="post" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
-                <label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+            <form method="get" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
+                <label for="text">Message:</label> <textarea  name="text" rows="0" cols="0"></textarea>
                 <input type="hidden" value="{{title}}" name="sendtitle"/>
-                <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" /> 
+                <input type="submit" class="submit_btn float_l" name="submit" id="content_submit" value="Send" />
             </form>
-        </div> 
+        </div>
+       </div>
         
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">

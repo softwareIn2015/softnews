@@ -281,19 +281,19 @@ def vdetail_page(request):
 
 
 def add_comment(request):
-    post = request.POST
+    comment_get = request.GET
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
-    title = post['sendtitle']
+    title = comment_get['sendtitle']
     news = NewsModel.objects.get(Title=title)
     new_comment = CommentsModel(
         User=user,
-        Text=post['text'],
+        Text=comment_get['text'],
         News=news
     )
     new_comment.save()
-    #response = HttpResponseRedirect('/news/detail/', locals())
-    #return response
+    username = request.COOKIES.get('username', '')  #读取cookie
+    comments = CommentsModel.objects.filter(News__Title=title)
     return render_to_response("detail.html", locals())
 
 

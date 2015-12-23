@@ -124,7 +124,7 @@ ddsmoothmenu.init({
         	<h3>国际新闻</h3>
             <ul>
                 {% for news in international_news %}
-            	    <li><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></li>
+            	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
                 {% endfor %}
             </ul>
 		</div>
@@ -132,7 +132,7 @@ ddsmoothmenu.init({
         	<h3>国内新闻</h3>
             <ul>
                 {% for news in domestic_news %}
-            	    <li><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></li>
+            	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -140,7 +140,7 @@ ddsmoothmenu.init({
         	<h3>军事新闻</h3>
             <ul>
                 {% for news in military_news %}
-            	    <li><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></li>
+            	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -148,7 +148,7 @@ ddsmoothmenu.init({
         	<h3>体育</h3>
             <ul>
                 {% for news in sports_news %}
-            	    <li><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></li>
+            	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
