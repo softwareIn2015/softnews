@@ -275,7 +275,9 @@ def detail_page(request):
 
 
 def vdetail_page(request):
-    return render_to_response("vdetail.html")
+    title = request.GET['Title']
+    news = NewsModel.objects.get(Title=title)
+    return render_to_response("vdetail.html", locals())
 
 
 def add_comment(request):
