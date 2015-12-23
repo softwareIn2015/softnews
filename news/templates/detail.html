@@ -55,14 +55,7 @@ ddsmoothmenu.init({
   return false;
  });
  });
- </script>
-    <script type="text/javascript">
-        $(function(){
-        $("#content_submit").submit(function()){
-          window.reload();
-        });
-     });
-    </script>
+</script>
 </head>
 
 <body>
@@ -117,8 +110,14 @@ ddsmoothmenu.init({
                 <a href="#" class="more float_r">Continue</a>
                 </div>
             </div>
+
              <div>
-               <h2><a class="zhan" href="#" style="text-decoration:none;"><font color="#FF0000">投票</font><font color="#FF0000">(<span>0</span>)</font></a></h2></div>
+                 <form method="get" action="/news/add_likes/" name="form1">
+                     <input type="hidden" value="{{news.Title}}" name="title"/>
+                     <a href="javascript:form1.submit();" ><img src="/static/images/zan.jpg"  alt="apec" /></a>
+                      <h4>{{zan_count}}人觉得赞</h4>
+                 </form>
+             </div>
             <div class="sb_box">
         	<h3>新闻来源：</h3>
             <ul class="sb_list">
@@ -137,7 +136,7 @@ ddsmoothmenu.init({
             <form method="get" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
                 <label for="text">Message:</label> <textarea  name="text" rows="0" cols="0"></textarea>
                 <input type="hidden" value="{{title}}" name="sendtitle"/>
-                <input type="submit" class="submit_btn float_l" name="submit" id="content_submit" value="Send" />
+                <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" />
             </form>
         </div>
        </div>
