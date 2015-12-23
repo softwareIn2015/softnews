@@ -29,7 +29,6 @@ function clearText(field)
 </script>
 
 <script type="text/javascript">
-
 ddsmoothmenu.init({
 	mainmenuid: "templatemo_menu", //menu DIV id
 	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
@@ -55,6 +54,109 @@ ddsmoothmenu.init({
   return false;
  });
  });
+ //分页管理
+var pageSize = 15;    //每页显示的记录条数
+var curPage=0;        //当前页
+var lastPage;        //最后页
+var direct=0;        //方向
+var len;            //总行数
+var page;            //总页数
+var begin;
+var end;
+
+
+$(document).ready(function display(){
+	len =$("#mytable tr").length - 1;    // 求这个表的总行数，剔除第一行介绍
+	page=len % pageSize==0 ? len/pageSize : Math.floor(len/pageSize)+1;//根据记录条数，计算页数
+	// alert("page==="+page);
+	curPage=1;    // 设置当前为第一页
+	displayPage(1);//显示第一页
+
+	document.getElementById("btn0").innerHTML="当前 " + curPage + "/" + page + " 页    每页 ";    // 显示当前多少页
+	document.getElementById("sjzl").innerHTML="数据总量 " + len + "";        // 显示数据量
+	document.getElementById("pageSize").value = pageSize;
+
+
+
+	$("#btn1").click(function firstPage(){    // 首页
+		curPage=1;
+		direct = 0;
+		displayPage();
+	});
+	$("#btn2").click(function frontPage(){    // 上一页
+		direct=-1;
+		displayPage();
+	});
+	$("#btn3").click(function nextPage(){    // 下一页
+		direct=1;
+		displayPage();
+	});
+	$("#btn4").click(function lastPage(){    // 尾页
+		curPage=page;
+		direct = 0;
+		displayPage();
+	});
+	$("#btn5").click(function changePage(){    // 转页
+		curPage=document.getElementById("changePage").value * 1;
+		if (!/^[1-9]\d*$/.test(curPage)) {
+			alert("请输入正整数");
+			return ;
+		}
+		if (curPage > page) {
+			alert("超出数据页面");
+			return ;
+		}
+		direct = 0;
+		displayPage();
+	});
+
+
+	$("#pageSizeSet").click(function setPageSize(){    // 设置每页显示多少条记录
+		pageSize = document.getElementById("pageSize").value;    //每页显示的记录条数
+		if (!/^[1-9]\d*$/.test(pageSize)) {
+			alert("请输入正整数");
+			return ;
+		}
+		len =$("#mytable tr").length - 1;
+		page=len % pageSize==0 ? len/pageSize : Math.floor(len/pageSize)+1;//根据记录条数，计算页数
+		curPage=1;        //当前页
+		 direct=0;        //方向
+		 firstPage();
+	});
+});
+
+function displayPage(){
+	if(curPage <=1 && direct==-1){
+		direct=0;
+		alert("已经是第一页了");
+		return;
+	} else if (curPage >= page && direct==1) {
+		direct=0;
+		alert("已经是最后一页了");
+		return ;
+	}
+
+	lastPage = curPage;
+
+	// 修复当len=1时，curPage计算得0的bug
+	if (len > pageSize) {
+		curPage = ((curPage + direct + len) % len);
+	} else {
+		curPage = 1;
+	}
+
+	document.getElementById("btn0").innerHTML="当前 " + curPage + "/" + page + " 页    每页 ";        // 显示当前多少页
+
+	begin=(curPage-1)*pageSize + 1;// 起始记录号
+	end = begin + 1*pageSize - 1;    // 末尾记录号
+
+	if(end > len ) end=len;
+	$("#mytable tr").hide();    // 首先，设置这行为隐藏
+	$("#mytable tr").each(function(i){    // 然后，通过条件判断决定本行是否恢复显示
+		if((i>=begin && i<=end) || i==0 )//显示begin<=x<=end的记录
+			$(this).show();
+	});
+ }
 </script>
 </head>
 
@@ -158,7 +260,14 @@ ddsmoothmenu.init({
 
         <div class="sb_box">
             <h3>评论列表：</h3>
-            <form action=" " method="get">
+                <a  href="#" id="btn1" style="text-decoration:none;">首页</a>
+                <a  href="#" id="btn2" >上一页</a>
+                <a  href="#" id="btn3" >下一页</a>
+                <a  href="#" id="btn4" style="text-decoration:none;">尾页</a>
+                <a style="text-decoration:none;">转到 </a>
+                <input id="changePage" type="text" size="1" maxlength="4"/>
+                <a style="text-decoration:none;">页 </a>
+                <a href="#" id="btn5" style="text-decoration:none;">跳转</a>
                 <table border="0"  width="280" >
                     {% for comment in comments %}
                     <tr><td align="left"><h4>{{comment.User.Name}}:</h4></td>
@@ -168,21 +277,23 @@ ddsmoothmenu.init({
                     </tr>
                     {% endfor %}
                 </table>
-            </form>
+                <!--<a id="btn0"></a>
+                <input id="pageSize" type="text" size="1" maxlength="2" value="getDefaultValue()"/><a> 条 </a> <a href="#" id="pageSizeSet">设置</a>
+                <a id="sjzl"></a>
+                -->
             </div>
 	</div> <!-- end of sidebar -->
+
     <div class="cleaner"></div>
     
     <div id="templatemo_bottom" align="center">
-    	<p><a href="http://www.gov.cn/" target="_blank">中国政府网</a> | <a href="http://www.china.com.cn" target="_blank">中国网</a> | <a href="http://www.people.com.cn/" target="_blank">人民网</a> | <a href="http://www.xinhuanet.com/" target="_blank">新华网</a> | <a href="http://www.chinanews.com/" target="_blank">中新网</a> | <a href="http://www.cctv.com/default.shtml" target="_blank">央视网</a> | <a href="http://www.cnr.cn/" target="_blank">中广网</a> |  <a href="http://www.chinadaily.com.cn/" target="_blank">中国日报</a> | <a href="http://www.cyol.net/node/index.htm" target="_blank">中青在线</a> | <a href="http://www.gmw.cn/" target="_blank">光明网</a> | <a href="http://www.chinamil.com.cn/" target="_blank">解放军报</a> | <a href="http://www.legaldaily.com.cn/" target="_blank">法制日报</a> | <a href="http://www.taiwan.cn/" target="_blank">中国台湾网</a> | <a href="http://www.ce.cn/" target="_blank">中经网</a> | <a href="http://www.nfcmag.com/" target="_blank">南风窗</a></p>
-  <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p>
-  <p><a href="http://www.neweekly.com.cn" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p>
-  <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p>
-    
-    <div id="templatemo_footer">
-    	Copyright@HIT <a href="#">03107</a>
-    </div>
-</div>
-
+        <p><a href="http://www.gov.cn/" target="_blank">中国政府网</a> | <a href="http://www.china.com.cn" target="_blank">中国网</a> | <a href="http://www.people.com.cn/" target="_blank">人民网</a> | <a href="http://www.xinhuanet.com/" target="_blank">新华网</a> | <a href="http://www.chinanews.com/" target="_blank">中新网</a> | <a href="http://www.cctv.com/default.shtml" target="_blank">央视网</a> | <a href="http://www.cnr.cn/" target="_blank">中广网</a> |  <a href="http://www.chinadaily.com.cn/" target="_blank">中国日报</a> | <a href="http://www.cyol.net/node/index.htm" target="_blank">中青在线</a> | <a href="http://www.gmw.cn/" target="_blank">光明网</a> | <a href="http://www.chinamil.com.cn/" target="_blank">解放军报</a> | <a href="http://www.legaldaily.com.cn/" target="_blank">法制日报</a> | <a href="http://www.taiwan.cn/" target="_blank">中国台湾网</a> | <a href="http://www.ce.cn/" target="_blank">中经网</a> | <a href="http://www.nfcmag.com/" target="_blank">南风窗</a></p>
+      <p><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a> | <a href="http://www.lifeweek.com.cn/" target="_blank">三联生活周刊</a> | <a href="http://www.ynet.com/" target="_blank">北青网</a> | <a href="http://www.dayoo.com/" target="_blank">大洋网</a> | <a href="http://www.nanfangdaily.com.cn" target="_blank">南方报业</a> | <a href="http://www.ycwb.com/" target="_blank">金羊网</a> | <a href="http://www.southcn.com/" target="_blank">南方网</a> | <a href="http://www.eastday.com" target="_blank">东方网</a> | <a href="http://www.21dnn.com/" target="_blank">千龙网</a> | <a href="http://www.thebeijingnews.com/" target="_blank">新京报</a> | <a href="http://epaper.jinghua.cn/" target="_blank">京华时报</a>| <a href="http://www.rednet.com.cn/" target="_blank">红网</a> | <a href="http://workercn.cn/" target="_blank">工人日报</a> | <a href="http://www.inewsweek.cn/" target="_blank">中国新闻周刊</a> | <a href="http://www.cankaoxiaoxi.com/" target="_blank">参考消息</a></p>
+      <p><a href="http://www.neweekly.com.cn" target="_blank">新周刊</a> | <a href="http://www.dahe.cn/" target="_blank">大河网</a> | <a href="http://www.chinapeace.org.cn/" target="_blank">中国长安网</a> | <a href="http://www.huanqiu.com/" target="_blank">环球网</a> | <a href="http://www.newssc.org" target="_blank">四川新闻网</a> | <a href="http://www.morningpost.com.cn/" target="_blank">北晨网</a> | <a href="http://www.zjol.com.cn/" target="_blank">浙江在线</a> | <a href="http://gb.cri.cn/" target="_blank">国际在线</a> | <a href="http://www.e23.cn/" target="_blank">舜网</a> | <a href="http://www.xkb.com.cn./index.php" target="_blank">新快网</a> | <a href="http://www.jxcn.cn/" target="_blank">中国江西网</a> | <a href="http://www.yunnan.cn" target="_blank">云南网</a> | <a href="http://www.szed.com/" target="_blank">深圳新闻网</a> | <a href="http://www.anhuinews.com/" target="_blank">中安在线</a> | <a href="http://www.xwh.cn/" target="_blank">新文化网</a></p>
+      <p><a href="http://www.ts.cn/" target="_blank">天山网</a> | <a href="http://www.iyaxin.com/" target="_blank">亚心网</a> | <a href="http://www.dzwww.com/" target="_blank">大众网</a> | <a href="http://www.jxnews.com.cn/" target="_blank">大江网</a> | <a href="http://www.hsw.cn/" target="_blank">华商网</a> | <a href="http://www.chinaxiaokang.com/" target="_blank">中国小康网</a> | <a href="http://www.jxcbw.cn/" target="_blank">江西晨报网</a> | <a href="http://xmzk.xinminweekly.com.cn/" target="_blank">新民周刊</a> | <a href="http://www.fjsen.com/" target="_blank">东南网</a> | <a href="http://www.sdnews.com.cn/" target="_blank">山东新闻网</a> | <a href="http://www.xinjiangnet.com.cn/" target="_blank">新疆网</a> | <a href="http://www.cqnews.net/" target="_blank">华龙网</a> | <a href="http://news.cnhubei.com/" target="_blank">荆楚网</a> | <a href="http://www.ahwang.cn/" target="_blank">安徽网</a> | <a href="http://news.sina.com.cn/media.html" target="_blank">媒体大全</a></p>
+        <div id="templatemo_footer">
+            Copyright@HIT <a href="#">03107</a>
+        </div>
+     </div><!--end of bottom   -->
 </body>
 </html>
