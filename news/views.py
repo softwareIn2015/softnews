@@ -5,7 +5,6 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse, HttpResponseRedirect
 from models import *
 
-
 def search(request):
     username = request.COOKIES.get('username', '')  #读取cookie
     post = request.POST
@@ -308,8 +307,9 @@ def add_likes(request):
         ip = request.META['REMOTE_ADDR']
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
-    title = getlikes['title']
+    title = getlikes['Title']
     news = NewsModel.objects.get(Title=title)
+    news.Likes = int(getlikes['zan'])
     newlikes = LikesModel(
         User=user,
         Ip=ip,
@@ -320,7 +320,8 @@ def add_likes(request):
     flag = 0
     if thisLikes:
         for like in thisLikes:
-            if user == like.User or ip == like.Ip:
+            #先修改成用户
+            if user == like.User:
                 flag = 0
                 break
             else:
@@ -335,9 +336,9 @@ def add_likes(request):
         news.Likes += 1
         news.save()
     zan_count = news.Likes
-    comments = CommentsModel.objects.filter(News__Title=title)
-    return render_to_response("detail.html", locals())
-    #return HttpResponse(str(zan_count))
+    #comments = CommentsModel.objects.filter(News__Title=title)
+    #return render_to_response("detail.html", locals())
+    return HttpResponse(str(zan_count))
 
 
 def register(request):

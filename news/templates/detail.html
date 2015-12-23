@@ -40,20 +40,28 @@ ddsmoothmenu.init({
 </script>
 
 <script type="text/javascript">
- <!-- 
-  $(document).ready(function(e) {
-    $('a.zhan').click(function(){
-  var left = parseInt($(this).offset().left)+10, top =  parseInt($(this).offset().top)-10, obj=$(this);
-  $(this).append('<div id="zhan"><b>+1<\/b></\div>');
-  $('#zhan').css({'position':'absolute','<a href="https://www.baidu.com/s?wd=z-index&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dWujPWryPWnvn3nAcLujck0AP8IA3qPjfsn1bkrjKxmLKz0ZNzUjdCIZwsrBtEXh9GuA7EQhF9pywdQhPEUiqkIyN1IA-EUBtdPWfsrHRvPjb" target="_blank" class="baidu-highlight">z-index</a>':'1', 'color':'#C30','left':left+'px','top':top+'px'}).animate({top:top-10,left:left+10},'slow',function(){
-   $(this).fadeIn('fast').remove();
-   var Num = parseInt(obj.find('span').text());
-       Num++;
-    obj.find('span').text(Num);
-  });
-  return false;
- });
- });
+function likes_num(num){
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function()
+  {
+  if(xmlhttp.readyState==4 && xmlhttp.status==200)
+  {
+  document.getElementById("praise").innerHTML=xmlhttp.responseText;
+  }
+  }
+  var title=document.getElementById("title").innerHTML;
+  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&Title='+title,true);
+  xmlhttp.send();
+}
+
  //分页管理
 var pageSize = 15;    //每页显示的记录条数
 var curPage=0;        //当前页
@@ -204,7 +212,7 @@ function displayPage(){
     
     <div id="templatemo_content">
        <div class="post_box">
-                <h2>{{news.Title}}</h2>
+                <h2 id="title">{{news.Title}}</h2>
                 <img src="{{news.Image}}"  alt="apec" />
                 <p>{{news.Summary}}</p>
               	<div class="post_meta">
@@ -214,11 +222,8 @@ function displayPage(){
             </div>
 
              <div>
-                 <form method="get" action="/news/add_likes/" name="form1">
-                     <input type="hidden" value="{{news.Title}}" name="title"/>
-                     <a href="javascript:form1.submit();" ><img src="/static/images/zan.jpg"  alt="apec" /></a>
-                      <h4>{{zan_count}}人觉得赞</h4>
-                 </form>
+                     <button type="button" onclick="likes_num({{zan_count}})"><img src="/static/images/zan.jpg"  alt="赞一个" /></button>
+                     <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
              </div>
 
             <div class="sb_box">
