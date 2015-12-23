@@ -265,6 +265,7 @@ def detail_page(request):
     username = request.COOKIES.get('username', '')  #读取cookie
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
+    zan_count = news.Likes
     if len(username):
         #新闻与评论的内外键，查询到评论内容
         comments = CommentsModel.objects.filter(News__Title=title)
@@ -292,9 +293,51 @@ def add_comment(request):
         News=news
     )
     new_comment.save()
+    zan_count = news.Likes
     username = request.COOKIES.get('username', '')  #读取cookie
     comments = CommentsModel.objects.filter(News__Title=title)
     return render_to_response("detail.html", locals())
+
+
+def add_likes(request):
+    getlikes = request.GET
+    #获取用户ip
+    if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+    username = request.COOKIES.get('username', '')
+    user = UserModel.objects.get(Name=username)
+    title = getlikes['title']
+    news = NewsModel.objects.get(Title=title)
+    newlikes = LikesModel(
+        User=user,
+        Ip=ip,
+        News=news)
+    #判断是否是同一用户、同一IP对此新闻点赞
+
+    thisLikes = LikesModel.objects.filter(News=news)
+    flag = 0
+    if thisLikes:
+        for like in thisLikes:
+            if user == like.User or ip == like.Ip:
+                flag = 0
+                break
+            else:
+                flag = 1
+        if flag == 1:
+            newlikes.save()
+            news.Likes += 1
+            news.save()
+    else:
+        #此新闻还没一个赞
+        newlikes.save()
+        news.Likes += 1
+        news.save()
+    zan_count = news.Likes
+    comments = CommentsModel.objects.filter(News__Title=title)
+    return render_to_response("detail.html", locals())
+    #return HttpResponse(str(zan_count))
 
 
 def register(request):
