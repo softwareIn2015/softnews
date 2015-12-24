@@ -105,8 +105,8 @@ ddsmoothmenu.init({
                 {% endif %}
                 <p>{{news.Summary}}</p>
               	<div class="post_meta">
-                <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
-                <a href="" class="more float_r">Continue</a>
+                <a href="#location">{{news.Comments}}条评论</a>  |  <a href="#location">参与评论</a>
+                <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
                 </div>
             </div>
             <div class="sb_box">
@@ -126,7 +126,7 @@ ddsmoothmenu.init({
                 {% endfor %}
             </ul>
         </div>
-  		<h3><a href="/User/login/">点我登录参加评论</a></h3>
+  		<h3><a href="/User/login/" name="location" style="text-decoration:none;">点我登录参加评论</a></h3>
         
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">

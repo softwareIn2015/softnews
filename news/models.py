@@ -21,6 +21,7 @@ class NewsModel(models.Model):
     Summary = models.CharField(max_length=1000)
     Image = models.CharField(max_length=1000)
     Likes = models.IntegerField()
+    Comments = models.IntegerField()
 
 
 class UrlsModel(models.Model):

@@ -409,7 +409,6 @@ def detail_page(request):
     if len(username):
         # 新闻与评论的内外键，查询到评论内容
         comments = CommentsModel.objects.filter(News__Title=title)
-        comment_counts = comments.count
         urls = UrlsModel.objects.filter(News__Title=title)
         detail_urls = urls[0]
         return render_to_response("detail.html", locals())
@@ -450,6 +449,8 @@ def add_comment(request):
         Text=comment_get['text'],
         News=news
     )
+    news.Comments += 1
+    news.save()
     new_comment.save()
     zan_count = news.Likes
     username = request.COOKIES.get('username', '')  # 读取cookie
