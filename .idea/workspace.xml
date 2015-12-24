@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="171faf11-0c7a-4117-9cf8-7e69c9dcdc2f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/hot.html" afterPath="$PROJECT_DIR$/news/templates/hot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/military.html" afterPath="$PROJECT_DIR$/news/templates/military.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/sports.html" afterPath="$PROJECT_DIR$/news/templates/sports.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/vhot.html" afterPath="$PROJECT_DIR$/news/templates/vhot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/vmilitary.html" afterPath="$PROJECT_DIR$/news/templates/vmilitary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/vsports.html" afterPath="$PROJECT_DIR$/news/templates/vsports.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/contact.html" afterPath="$PROJECT_DIR$/news/templates/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/userInfo.html" afterPath="$PROJECT_DIR$/news/templates/userInfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="softnews.iws" />
@@ -29,6 +26,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="10.382353">
+              <caret line="217" column="27" selection-start-line="215" selection-start-column="16" selection-end-line="217" selection-end-column="27" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#4;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#5;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#6;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news/templates/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.941176">
+              <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news/templates/userInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.529412">
+              <caret line="117" column="14" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,30 +76,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vsports.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/templates/vsports.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.558824">
-              <caret line="86" column="15" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7029703">
+              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
               <folding>
                 <element signature="e#50#101#0" expanded="true" />
-                <element signature="e#11041#11600#0" expanded="false" />
-                <element signature="e#11634#11882#0" expanded="false" />
-                <element signature="e#11915#12521#0" expanded="false" />
-                <element signature="e#13796#15153#0" expanded="false" />
-                <element signature="e#15180#16371#0" expanded="false" />
-                <element signature="e#16399#16583#0" expanded="false" />
-                <element signature="e#16613#16764#0" expanded="false" />
+                <element signature="e#4683#5097#0" expanded="false" />
+                <element signature="e#5133#5748#0" expanded="false" />
+                <element signature="e#5785#6208#0" expanded="false" />
+                <element signature="e#6248#6879#0" expanded="false" />
+                <element signature="e#6920#7355#0" expanded="false" />
+                <element signature="e#7390#7997#0" expanded="false" />
+                <element signature="e#8033#8453#0" expanded="false" />
+                <element signature="e#8486#9085#0" expanded="false" />
+                <element signature="e#9119#9533#0" expanded="false" />
+                <element signature="e#9568#10175#0" expanded="false" />
+                <element signature="e#10211#10631#0" expanded="false" />
+                <element signature="e#10665#11097#0" expanded="false" />
+                <element signature="e#11130#11689#0" expanded="false" />
+                <element signature="e#11723#11971#0" expanded="false" />
+                <element signature="e#12004#12610#0" expanded="false" />
+                <element signature="e#12641#13855#0" expanded="false" />
+                <element signature="e#13885#15242#0" expanded="false" />
+                <element signature="e#15269#16460#0" expanded="false" />
+                <element signature="e#16488#16672#0" expanded="false" />
+                <element signature="e#16702#16943#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="military.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="military.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/military.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.743007">
+            <state vertical-scroll-proportion="25.82353">
               <caret line="90" column="27" selection-start-line="90" selection-start-column="15" selection-end-line="92" selection-end-column="27" />
               <folding />
             </state>
@@ -112,31 +148,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vmilitary.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/templates/vmilitary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.558824">
-              <caret line="85" column="27" selection-start-line="85" selection-start-column="16" selection-end-line="87" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vsocial.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/templates/vsocial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7352941">
-              <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="domestic.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/domestic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8529413">
-              <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+            <state vertical-scroll-proportion="-7.529412">
+              <caret line="123" column="14" selection-start-line="117" selection-start-column="6" selection-end-line="123" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -176,11 +192,9 @@
         <option value="$PROJECT_DIR$/softnews/urls.py" />
         <option value="$PROJECT_DIR$/news/templates/home.html" />
         <option value="$PROJECT_DIR$/news/templates/amusement.html" />
-        <option value="$PROJECT_DIR$/news/templates/contact.html" />
         <option value="$PROJECT_DIR$/news/templates/detail.html" />
         <option value="$PROJECT_DIR$/news/templates/search.html" />
         <option value="$PROJECT_DIR$/news/templates/social.html" />
-        <option value="$PROJECT_DIR$/news/templates/userInfo.html" />
         <option value="$PROJECT_DIR$/news/templates/vmilitary.html" />
         <option value="$PROJECT_DIR$/news/templates/vinternational.html" />
         <option value="$PROJECT_DIR$/news/templates/international.html" />
@@ -189,9 +203,11 @@
         <option value="$PROJECT_DIR$/news/templates/sports.html" />
         <option value="$PROJECT_DIR$/news/templates/domestic.html" />
         <option value="$PROJECT_DIR$/news/templates/login.html" />
-        <option value="$PROJECT_DIR$/news/views.py" />
         <option value="$PROJECT_DIR$/news/templates/hot.html" />
         <option value="$PROJECT_DIR$/news/templates/military.html" />
+        <option value="$PROJECT_DIR$/news/templates/contact.html" />
+        <option value="$PROJECT_DIR$/news/templates/userInfo.html" />
+        <option value="$PROJECT_DIR$/news/views.py" />
       </list>
     </option>
   </component>
@@ -672,7 +688,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450947276895</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="修改一些页面格式问题的html">
+      <created>1450948047229</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1450948047229</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -730,11 +752,12 @@
     <MESSAGE value="准备实现点赞的局部刷新" />
     <MESSAGE value="完善赞的局部刷新" />
     <MESSAGE value="添加了用户信息，修改了登录错误提示，完善了html中的一些bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了用户信息，修改了登录错误提示，完善了html中的一些bug" />
+    <MESSAGE value="修改一些页面格式问题的html" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改一些页面格式问题的html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -933,14 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.735294">
-          <caret line="139" column="119" selection-start-line="139" selection-start-column="119" selection-end-line="139" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/standardSchemas/xhtml1-transitional.dtd">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.9411764">
@@ -986,14 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/userInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.558824">
-          <caret line="132" column="119" selection-start-line="132" selection-start-column="119" selection-end-line="132" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/vamusement.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7352941">
@@ -1023,20 +1030,6 @@
         <state vertical-scroll-proportion="-0.7352941">
           <caret line="127" column="36" selection-start-line="127" selection-start-column="36" selection-end-line="127" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.264706">
-          <caret line="217" column="27" selection-start-line="215" selection-start-column="16" selection-end-line="217" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#3;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#4;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#5;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#6;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1096,14 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/domestic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8529413">
-          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0588236">
@@ -1112,23 +1097,6 @@
             <element signature="n#style#0;n#DIV#1;n#BODY#0;n#body#0;n#HTML#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#DIV#0;n#DIV#1;n#BODY#0;n#body#0;n#HTML#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#P#0;n#form#0;n#DIV#1;n#BODY#0;n#body#0;n#HTML#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
-          <folding>
-            <element signature="e#50#101#0" expanded="true" />
-            <element signature="e#11041#11600#0" expanded="false" />
-            <element signature="e#11634#11882#0" expanded="false" />
-            <element signature="e#11915#12521#0" expanded="false" />
-            <element signature="e#13796#15153#0" expanded="false" />
-            <element signature="e#15180#16371#0" expanded="false" />
-            <element signature="e#16399#16583#0" expanded="false" />
-            <element signature="e#16613#16764#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1143,9 +1111,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/military.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.743007">
+        <state vertical-scroll-proportion="25.82353">
           <caret line="90" column="27" selection-start-line="90" selection-start-column="15" selection-end-line="92" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.382353">
+          <caret line="217" column="27" selection-start-line="215" selection-start-column="16" selection-end-line="217" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#4;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#5;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#6;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/domestic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.529412">
+          <caret line="123" column="14" selection-start-line="117" selection-start-column="6" selection-end-line="123" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.941176">
+          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.529412">
+          <caret line="117" column="14" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7029703">
+          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding>
+            <element signature="e#50#101#0" expanded="true" />
+            <element signature="e#4683#5097#0" expanded="false" />
+            <element signature="e#5133#5748#0" expanded="false" />
+            <element signature="e#5785#6208#0" expanded="false" />
+            <element signature="e#6248#6879#0" expanded="false" />
+            <element signature="e#6920#7355#0" expanded="false" />
+            <element signature="e#7390#7997#0" expanded="false" />
+            <element signature="e#8033#8453#0" expanded="false" />
+            <element signature="e#8486#9085#0" expanded="false" />
+            <element signature="e#9119#9533#0" expanded="false" />
+            <element signature="e#9568#10175#0" expanded="false" />
+            <element signature="e#10211#10631#0" expanded="false" />
+            <element signature="e#10665#11097#0" expanded="false" />
+            <element signature="e#11130#11689#0" expanded="false" />
+            <element signature="e#11723#11971#0" expanded="false" />
+            <element signature="e#12004#12610#0" expanded="false" />
+            <element signature="e#12641#13855#0" expanded="false" />
+            <element signature="e#13885#15242#0" expanded="false" />
+            <element signature="e#15269#16460#0" expanded="false" />
+            <element signature="e#16488#16672#0" expanded="false" />
+            <element signature="e#16702#16943#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

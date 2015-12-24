@@ -340,13 +340,15 @@ def vmilitary_page(request):
 
 def contact_page(request):
     """
-    用户反馈据
+    用户反馈
     :param request:
     :return:
     """
     username = request.COOKIES.get('username', '')  # 读取cookie
     user = UserModel.objects.get(Name=username)
     mail = user.Email
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     if len(username):
         return render_to_response("contact.html", locals())
     else:
@@ -538,4 +540,6 @@ def logout(request):
 def userinfo(request):
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    most_like = hot_news[1]
     return render_to_response("userInfo.html", locals())

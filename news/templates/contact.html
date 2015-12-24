@@ -87,7 +87,7 @@ ddsmoothmenu.init({
     <div id="templatemo_content">
   		<h1>意见反馈</h1>
          <div id="contact_form">
-            <form method="post" name="contact" action="/news/contact/" onsubmit="alrt('您的意见已发送！')">
+            <form method="post" name="contact" action="/news/home/" onsubmit="alert('您的意见已发送！')">
             	<div class="float_l">
                  	<label for="author">Name:</label> <input type="text" id="author" name="author" class="required input_field" />
 				</div>
@@ -116,14 +116,12 @@ ddsmoothmenu.init({
 			</ul>
         </div>
         
-       <div class="sb_box">
+        <div class="sb_box">
         	<h3>热点推荐</h3>
-           	 <h4>放大招了，2016年四大卫视的重头剧都在这</h4>
-             <p>江苏卫视
-
-江苏台明年将继续主打大剧战略和独播战略，囤积储备了近20部剧目。类型题材涵盖各个类型。它们还要推出周播剧战略，拟定于周三周四晚间播出。播出剧目时间均未定。主打剧 放大招了，2016年四大卫视的重头剧都在这《胭脂》 《女医明妃传》 《白鹿原》放大招了，2016年四大卫视的重头剧都在这《微微一笑很倾城》《锦绣未央》《秀丽江山之长歌行》锦绣缘璀璨年华》</p>
+           	 <h4>{{most_like.Title}}</h4>
+             <p>{{most_like.Summary}}</p>
             <div class="cleaner"></div>
-            <a href="#" class="more">More</a>
+            <a href="/news/detail/?Title={{most_like.Title}}" class="more">More</a>
         </div>
         </div>
         
