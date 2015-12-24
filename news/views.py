@@ -345,11 +345,13 @@ def contact_page(request):
     :return:
     """
     username = request.COOKIES.get('username', '')  # 读取cookie
+    user = UserModel.objects.get(Name=username)
+    mail = user.Email
     if len(username):
         return render_to_response("contact.html", locals())
     else:
-       response = HttpResponse('请先登录')
-       return response
+        response = HttpResponse('请先登录')
+        return response
 
 
 def detail_page(request):
@@ -464,26 +466,29 @@ def register(request):
     if request.method == 'POST':
         post = request.POST
         result_regist = {"status": False, "data": ""}
-        regist_Name = post['name']
-        regist_Email = post['email']
-        regist_Password = post['password']
-
-        if regist_Name == "" or regist_Name.isspace():
-             result_regist = {"status": False, "data": "用户名不为空"}
+        regist_name = post['name']
+        regist_email = post['email']
+        regist_password = post['password']
+        user = UserModel.objects.filter(Name=regist_name)
+        if user:
+            result_regist = {"status": False, "data": "用户名已注册"}
         else:
-            if regist_Email == "" or regist_Email.isspace():
-                 result_regist = {"status": False, "data": "邮箱不能为空"}
+            if regist_name == "" or regist_name.isspace():
+                result_regist = {"status": False, "data": "用户名不为空"}
             else:
-                if regist_Password == "" or regist_Password.isspace():
-                    result_regist = {"status": False, "data": "密码不能为空"}
+                if regist_email == "" or regist_email.isspace():
+                    result_regist = {"status": False, "data": "邮箱不能为空"}
                 else:
-                    new_user = UserModel(
-                        Name = regist_Name,
-                        Email = regist_Email,
-                        Password = regist_Password)
-                    new_user.save()
-                    result_regist = {"status": True, "data": "注册成功"}
-                    return HttpResponseRedirect('/User/login/', locals())
+                    if regist_password == "" or regist_password.isspace():
+                        result_regist = {"status": False, "data": "密码不能为空"}
+                    else:
+                        new_user = UserModel(
+                            Name=regist_name,
+                            Email=regist_email,
+                            Password=regist_password)
+                        new_user.save()
+                        result_regist = {"status": True, "data": "注册成功"}
+                        return HttpResponseRedirect('/User/login/', locals())
     return render_to_response("register.html", locals())
 
 
@@ -511,13 +516,11 @@ def login(request):
                         # 登录成功
                         result = {"status": True, "data": "登录成功"}
                         response = HttpResponseRedirect('/news/home/', locals())
-                        response.set_cookie('username', Name, 3600)  # 写入cookie
+                        response.set_cookie('username', Name, 3600*3)  # 写入cookie 登录时间是3个小时
                         return response
                     else:
                         result = {"status": False, "data": "用户名或密码错误"}
-                        response = HttpResponseRedirect('/User/login/', locals())
-                        return response
-
+                        return render_to_response('login.html', locals())
     return render_to_response('login.html', locals())
 
 
@@ -528,7 +531,11 @@ def logout(request):
     :return:
     """
     response = HttpResponseRedirect('/User/login/', locals())
-    response.delete_cookie('username')
+    response.delete_cookie('username')  # 删除cookie
     return response
 
 
+def userinfo(request):
+    username = request.COOKIES.get('username', '')
+    user = UserModel.objects.get(Name=username)
+    return render_to_response("userInfo.html", locals())

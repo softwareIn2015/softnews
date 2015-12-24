@@ -64,7 +64,7 @@ ddsmoothmenu.init({
                   	</ul></li>
                  <li><a href="">{{username}}</a>
                     <ul>
-                     <li><a href="">用户信息</a> </li>
+                     <li><a href="/User/info/">用户信息</a> </li>
                         <li><a href="/User/logout/">退出登录</a> </li>
                     </ul>
                 </li>
@@ -88,9 +88,10 @@ ddsmoothmenu.init({
     	<div class="post_box">
             <a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">
                 <h2>{{news.Title}}</h2>
-                <img src="{{news.Image}}"  alt="{{news.Title}}" />
+               {% if news.Image != ' ' %}
+                    <img src="{{news.Image}}"  alt="正在加载中" height="200" width="200"/>
+                {% endif %}
                 <p><em>{{news.Summary}}</em></p>
-                <p>Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>. Morbi venenatis augue sit amet ante facilisis feugiat sed in lectus. Vivamus imperdiet, ante a pretium vehicula, ante enim sodales mi, eu rutrum odio turpis eget arcu. Proin a elit nisl, id aliquam felis. Nunc ultrices iaculis quam, sed commodo erat tempus mollis. </p>
               	<div class="post_meta">
                 <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
                 <a href="/news/detail/?Title={{news.Title}}" class="more float_r">Continue</a>
@@ -135,7 +136,7 @@ ddsmoothmenu.init({
     </div>
     
     <div id="templatemo_footer">
-    Copyright © HIT <a href="#">03107</a>
+        Copyright © HIT <a href="#">03107</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/news/contact/" target="_blank">意见反馈</a>
     </div>
 </div>
 
