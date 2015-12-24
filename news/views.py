@@ -102,11 +102,12 @@ def hot_page(request):
     :return:
     """
     username = request.COOKIES.get('username', '')  # 读取cookie
-    hot_news = NewsModel.objects.filter(Classification='hot')
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    most_like = hot_news[1]
+    len_ = len(hot_news)
+    most_like = hot_news[len_ - 1]
     if len(username) > 0:
         return render_to_response("hot.html", locals())
     else:
@@ -120,11 +121,12 @@ def vhot_page(request):
     :param request:
     :return:
     """
-    hot_news = NewsModel.objects.filter(Classification='hot')
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    most_like = hot_news[1]
     return render_to_response("vhot.html", locals())
 
 
@@ -139,8 +141,9 @@ def social_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='social').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("social.html", locals())
     else:
@@ -158,8 +161,9 @@ def vsocial_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='social').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vsocial.html", locals())
 
 
@@ -174,8 +178,9 @@ def amusement_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='amusement').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("amusement.html", locals())
     else:
@@ -193,8 +198,9 @@ def vamusement_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='amusement').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vamusement.html", locals())
 
 
@@ -209,8 +215,9 @@ def international_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='international').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("international.html", locals())
     else:
@@ -228,8 +235,9 @@ def vinternational_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='international').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vinternational.html", locals())
 
 
@@ -244,8 +252,9 @@ def domestic_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='domestic').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("domestic.html", locals())
     else:
@@ -263,8 +272,9 @@ def vdomestic_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='domestic').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vdomestic.html", locals())
 
 
@@ -279,8 +289,9 @@ def sports_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='sports').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("sports.html", locals())
     else:
@@ -298,8 +309,9 @@ def vsports_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='sports').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vsports.html", locals())
 
 
@@ -314,8 +326,9 @@ def military_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='military').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("military.html", locals())
     else:
@@ -333,8 +346,9 @@ def vmilitary_page(request):
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='military').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vmilitary.html", locals())
 
 
@@ -345,15 +359,37 @@ def contact_page(request):
     :return:
     """
     username = request.COOKIES.get('username', '')  # 读取cookie
-    user = UserModel.objects.get(Name=username)
-    mail = user.Email
-    hot_news = NewsModel.objects.filter(Classification='hot')
-    most_like = hot_news[1]
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("contact.html", locals())
     else:
         response = HttpResponse('请先登录')
         return response
+
+
+def submit_advice(request):
+    """
+    意见提交
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
+    user = UserModel.objects.get(Name=username)
+    mail = user.Email
+    advice = request.GET['advice']
+    if len(username):
+        newsadvice = AdviceModel(
+            Username=username,
+            Useremail=mail,
+            Advice=advice
+        )
+        newsadvice.save()
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
+    return render_to_response("contact.html", locals())
 
 
 def detail_page(request):
@@ -365,11 +401,17 @@ def detail_page(request):
     username = request.COOKIES.get('username', '')  # 读取cookie
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
+    classfication = news.Classification
+    hot_news = NewsModel.objects.filter(Classification=classfication).order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     zan_count = news.Likes
     if len(username):
         # 新闻与评论的内外键，查询到评论内容
         comments = CommentsModel.objects.filter(News__Title=title)
+        comment_counts = comments.count
         urls = UrlsModel.objects.filter(News__Title=title)
+        detail_urls = urls[0]
         return render_to_response("detail.html", locals())
     else:
         response = HttpResponseRedirect('/news/vdetail/', locals())
@@ -385,6 +427,10 @@ def vdetail_page(request):
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
     urls = UrlsModel.objects.filter(News__Title=title)
+    classfication = news.Classification
+    hot_news = NewsModel.objects.filter(Classification=classfication).order_by('Likes')
+    len_news = len(hot_news)
+    most_like = hot_news[len_news - 1]
     return render_to_response("vdetail.html", locals())
 
 
@@ -434,10 +480,10 @@ def add_likes(request):
         News=news)
 
     # 判断是否是同一用户、同一IP对此新闻点赞
-    thisLikes = LikesModel.objects.filter(News=news)
+    thislikes = LikesModel.objects.filter(News=news)
     flag = 0
-    if thisLikes:
-        for like in thisLikes:
+    if thislikes:
+        for like in thislikes:
             # 先修改成用户
             if user == like.User:
                 flag = 0

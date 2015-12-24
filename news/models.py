@@ -48,3 +48,12 @@ class LikesModel(models.Model):
     User = models.ForeignKey(UserModel)
     Ip = models.CharField(max_length=100)
     News = models.ForeignKey(NewsModel)
+
+
+class AdviceModel(models.Model):
+    """
+    用户意见模型
+    """
+    Username = models.CharField(max_length=40)
+    Useremail = models.EmailField()
+    Advice = models.TextField()

@@ -294,6 +294,14 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
 	border-bottom: 2px solid #000; 
 }
 
+.likes_div img {
+	margin-top: 10px;
+	height: 50px;
+	width:50px;
+	padding: 0 10px;
+	opacity:0.2;
+}
+
 .post_meta { 
 	clear: both; 
 	margin-top: 20px; 

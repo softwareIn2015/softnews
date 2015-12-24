@@ -40,6 +40,7 @@ ddsmoothmenu.init({
 </script>
 
 <script type="text/javascript">
+//点赞的局部刷新
 function likes_num(num){
 var xmlhttp;
 if (window.XMLHttpRequest)
@@ -218,15 +219,16 @@ function displayPage(){
                 {% endif %}
                 <p>{{news.Summary}}</p>
               	<div class="post_meta">
-                <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
-                <a href="#" class="more float_r">Continue</a>
+                <a href="#location">{{comment_counts}}条评论</a>  |  <a href="#add_location">参与评论</a>
+                <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
                 </div>
+               <div  align="center">
+                     <input type="button" onclick="likes_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
+                     <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
+              </div>
             </div>
 
-             <div>
-                     <button type="button" onclick="likes_num({{zan_count}})"><img src="/static/images/zan.jpg"  alt="赞一个" /></button>
-                     <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
-             </div>
+
 
             <div class="sb_box">
         	<h3>新闻来源：</h3>
@@ -246,7 +248,7 @@ function displayPage(){
             </ul>
         </div>
        <div class="sb_box">
-  		<h3>添加评论</h3>
+  		<h3><a name="add_location">添加评论</a></h3>
          <div id="contact_form">
             <form method="get" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
                 <label for="text">Message:</label> <textarea  name="text" rows="0" cols="0"></textarea>
@@ -272,7 +274,7 @@ function displayPage(){
         </div>
 
         <div class="sb_box">
-            <h3>评论列表：</h3>
+            <h3><a name="location">评论列表：</a></h3>
                 <a  href="#" id="btn1" style="text-decoration:none;">首页</a>
                 <a  href="#" id="btn2" >上一页</a>
                 <a  href="#" id="btn3" >下一页</a>

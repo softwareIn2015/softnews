@@ -87,15 +87,9 @@ ddsmoothmenu.init({
     <div id="templatemo_content">
   		<h1>意见反馈</h1>
          <div id="contact_form">
-            <form method="post" name="contact" action="/news/home/" onsubmit="alert('您的意见已发送！')">
-            	<div class="float_l">
-                 	<label for="author">Name:</label> <input type="text" id="author" name="author" class="required input_field" />
-				</div>
-                <div class="float_r">
-                    <label for="email">Email:</label> <input type="text" id="email" name="email" class="validate-email required input_field" />
-				</div>
+            <form method="get" name="contact" action="/news/advice/" onsubmit="alert('您的意见已发送！')">
                 <div class="cleaner h20"></div>
-                <label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+                <label for="text">Message:</label> <textarea id="text" name="advice" rows="0" cols="0" class="required"></textarea>
                 <div class="cleaner h20"></div>
                 <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="提交" />
             </form>
