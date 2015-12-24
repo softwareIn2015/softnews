@@ -229,14 +229,10 @@ function displayPage(){
             <div class="sb_box">
         	<h3>新闻来源：</h3>
             <ul class="sb_list">
-            	<li><a href="http://www.sohu.com/" target="_blank">搜狐</a>&nbsp;<a href="http://news.sohu.com/s2015/apec/index.shtml" target="_blank">http://news.sohu.com/s2015/apec/index.shtml</a></li>
-                <li><a href="http://www.sina.com.cn/" target="_blank">新浪新闻</a>&nbsp;<a href="http://news.sina.com.cn/o/2015-11-13/doc-ifxkrwks3863107.shtml" target="_blank">http://news.sina.com.cn/o/2015-11-13/doc-ifxkrwks3863107.shtml</a></li>
-                <li><a href="http://www.china.com/" target="_blank">中华网</a>&nbsp;<a href="http://news.china.com/focus/2015apec/11174790/20151113/20742825.html" target="_blank">http://news.china.com/focus/2015apec/11174790/20151113/20742825.html</a></li>
-                <li><a href="http://www.fjii.com/" target="_blank">福建热线</a>&nbsp;<a href="http://www.fjii.com/a/guone/20151113/47159.html" target="_blank">http://www.fjii.com/a/guone/20151113/47159.html</a></li>
-                <li><a href="http://www.cnr.cn/" target="_blank">央广网</a>&nbsp;<a href="http://news.cnr.cn/native/gd/20151113/t20151113_520493992.shtml" target="_blank">http://news.cnr.cn/native/gd/20151113/t20151113_520493992.shtml</a></li>
-                <li><a href="http://news.hainan.net/" target="_blank">海南在线</a>&nbsp;<a href="http://news.hainan.net/guonei/guoneiliebiao/2015/11/13/2614452.shtml" target="_blank">http://news.hainan.net/guonei/guoneiliebiao/2015/11/13/2614452.shtml</a></li>
-                <li><a href="http://www.cnwest.com/" target="_blank">西部网</a>&nbsp;<a href="http://news.cnwest.com/content/2015-11/13/content_13330662.htm" target="_blank">http://news.cnwest.com/content/2015-11/13/content_13330662.htm</a></li>
-			</ul>
+                {% for url in urls %}
+                <li><strong>{{url.Source}}</strong>:<a href="{{url.Urls}}">{{url.Urls}}</a></li>
+                {% endfor %}
+            </ul>
         </div>
        <div class="sb_box">
   		<h3>添加评论</h3>

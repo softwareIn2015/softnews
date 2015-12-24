@@ -268,6 +268,7 @@ def detail_page(request):
     if len(username):
         #新闻与评论的内外键，查询到评论内容
         comments = CommentsModel.objects.filter(News__Title=title)
+        urls = UrlsModel.objects.filter(News__Title=title)
         return render_to_response("detail.html", locals())
     else:
         response = HttpResponseRedirect('/news/vdetail/', locals())
@@ -277,6 +278,7 @@ def detail_page(request):
 def vdetail_page(request):
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
+    urls = UrlsModel.objects.filter(News__Title=title)
     return render_to_response("vdetail.html", locals())
 
 
