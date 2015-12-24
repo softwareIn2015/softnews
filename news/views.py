@@ -584,6 +584,11 @@ def logout(request):
 
 
 def userinfo(request):
+    """
+    用户信息
+    :param request:
+    :return:
+    """
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
     hot_news = NewsModel.objects.filter(Classification='hot')

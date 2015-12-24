@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="171faf11-0c7a-4117-9cf8-7e69c9dcdc2f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/static/images/zan.jpg" afterPath="$PROJECT_DIR$/news/static/images/zan.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/contact.html" afterPath="$PROJECT_DIR$/news/templates/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/detail.html" afterPath="$PROJECT_DIR$/news/templates/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/models.py" afterPath="$PROJECT_DIR$/news/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/static/css/templatemo_style.css" afterPath="$PROJECT_DIR$/news/static/css/templatemo_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softnews/urls.py" afterPath="$PROJECT_DIR$/softnews/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/vdetail.html" afterPath="$PROJECT_DIR$/news/templates/vdetail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -81,22 +74,19 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5858086">
-              <caret line="378" column="32" selection-start-line="378" selection-start-column="32" selection-end-line="378" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.50825083">
+              <caret line="542" column="0" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
               <folding>
                 <element signature="e#50#101#0" expanded="true" />
                 <element signature="e#265#655#0" expanded="false" />
                 <element signature="e#685#1961#0" expanded="false" />
                 <element signature="e#1992#3080#0" expanded="false" />
                 <element signature="e#3110#3689#0" expanded="false" />
-                <element signature="e#12623#13448#0" expanded="false" />
-                <element signature="e#13482#13926#0" expanded="false" />
-                <element signature="e#13959#14565#0" expanded="false" />
                 <element signature="e#14596#15810#0" expanded="false" />
                 <element signature="e#15840#17197#0" expanded="false" />
                 <element signature="e#17224#18415#0" expanded="false" />
                 <element signature="e#18443#18627#0" expanded="false" />
-                <element signature="e#18657#18898#0" expanded="false" />
+                <element signature="e#18657#18956#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -695,7 +685,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450948710083</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="完成了意见反馈的功能">
+      <created>1450961867582</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1450961867582</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -755,11 +751,12 @@
     <MESSAGE value="添加了用户信息，修改了登录错误提示，完善了html中的一些bug" />
     <MESSAGE value="修改一些页面格式问题的html" />
     <MESSAGE value="完善意见反馈，在用户信息，意见反馈更新热点推荐的新闻" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善意见反馈，在用户信息，意见反馈更新热点推荐的新闻" />
+    <MESSAGE value="完成了意见反馈的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了意见反馈的功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1161,22 +1158,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5858086">
-          <caret line="378" column="32" selection-start-line="378" selection-start-column="32" selection-end-line="378" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.50825083">
+          <caret line="542" column="0" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
           <folding>
             <element signature="e#50#101#0" expanded="true" />
             <element signature="e#265#655#0" expanded="false" />
             <element signature="e#685#1961#0" expanded="false" />
             <element signature="e#1992#3080#0" expanded="false" />
             <element signature="e#3110#3689#0" expanded="false" />
-            <element signature="e#12623#13448#0" expanded="false" />
-            <element signature="e#13482#13926#0" expanded="false" />
-            <element signature="e#13959#14565#0" expanded="false" />
             <element signature="e#14596#15810#0" expanded="false" />
             <element signature="e#15840#17197#0" expanded="false" />
             <element signature="e#17224#18415#0" expanded="false" />
             <element signature="e#18443#18627#0" expanded="false" />
-            <element signature="e#18657#18898#0" expanded="false" />
+            <element signature="e#18657#18956#0" expanded="false" />
           </folding>
         </state>
       </provider>
