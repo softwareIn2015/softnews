@@ -87,8 +87,8 @@ ddsmoothmenu.init({
                     <img src="{{news.Image}}"  alt="正在加载中" height="200" width="200"/>
                 {% endif %}
                 <p><em>{{news.Summary}}</em></p>
-               <div class="post_meta">
-                <span class="cat">Posted in <a href="#">Illustrations</a>, <a href="#">Graphics</a></span> | Date: June 27, 2048 | <a href="#">129 comments</a>
+              <div class="post_meta">
+                <a href="/news/vdetail/?Title={{news.Title}}">{{news.Likes}}人觉得赞   |   {{news.Comments}}条评论</a>
                 <a href="/news/vdetail/?Title={{news.Title}}" class="more float_r">Continue</a>
                 </div>
             </a>
