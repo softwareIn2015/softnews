@@ -5,8 +5,14 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse, HttpResponseRedirect
 from models import *
 
+
 def search(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    搜索
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     post = request.POST
     newsInfo = post['searchInfo']
     searchNews = NewsModel.objects.filter(Title__contains=newsInfo)
@@ -18,31 +24,37 @@ def search(request):
 
 
 def homepage(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    主页
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
-    hot = hot_news[0]#只使用热门新闻的第一个
+    hot = hot_news[0]  # 只使用热门新闻的第一个
 
     social_news = NewsModel.objects.filter(Classification='social')
-    social = social_news[0]#只使用社会新闻的第一个
+    social = social_news[0]  # 只使用社会新闻的第一个
 
     amusement_news = NewsModel.objects.filter(Classification='amusement')
-    amusement = amusement_news[0]#只使用娱乐新闻的第一个
+    amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
 
     international_news = NewsModel.objects.filter(Classification='international')
-    if len(international_news) > 6:#只保留前六个
+    if len(international_news) > 6:  # 只保留前六个
         international_news = international_news[0:6]
 
     domestic_news = NewsModel.objects.filter(Classification='domestic')
-    if len(domestic_news) > 6:#只保留前六个
+    if len(domestic_news) > 6:  # 只保留前六个
         domestic_news = domestic_news[0:6]
 
     military_news = NewsModel.objects.filter(Classification='military')
-    if len(military_news) > 6:#只保留前六个
+    if len(military_news) > 6:  # 只保留前六个
         military_news = military_news[0:6]
 
     sports_news = NewsModel.objects.filter(Classification='sports')
-    if len(sports_news) > 6:#只保留前六个
+    if len(sports_news) > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
+
     if len(username) > 0:
         return render_to_response('home.html', locals())
     else:
@@ -51,35 +63,45 @@ def homepage(request):
 
 
 def vhomepage(request):
+    """
+    访客模式的主页
+    :param request:
+    :return:
+    """
     hot_news = NewsModel.objects.filter(Classification='hot')
-    hot = hot_news[0]#只使用热门新闻的第一个
+    hot = hot_news[0]  # 只使用热门新闻的第一个
 
     social_news = NewsModel.objects.filter(Classification='social')
-    social = social_news[0]#只使用社会新闻的第一个
+    social = social_news[0]  # 只使用社会新闻的第一个
 
     amusement_news = NewsModel.objects.filter(Classification='amusement')
-    amusement = amusement_news[0]#只使用娱乐新闻的第一个
+    amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
 
     international_news = NewsModel.objects.filter(Classification='international')
-    if len(international_news) > 6:#只保留前六个
+    if len(international_news) > 6:  # 只保留前六个
         international_news = international_news[0:6]
 
     domestic_news = NewsModel.objects.filter(Classification='domestic')
-    if len(domestic_news) > 6:#只保留前六个
+    if len(domestic_news) > 6:  # 只保留前六个
         domestic_news = domestic_news[0:6]
 
     military_news = NewsModel.objects.filter(Classification='military')
-    if len(military_news) > 6:#只保留前六个
+    if len(military_news) > 6:  # 只保留前六个
         military_news = military_news[0:6]
 
     sports_news = NewsModel.objects.filter(Classification='sports')
-    if len(sports_news) > 6:#只保留前六个
+    if len(sports_news) > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
     return render_to_response('vhome.html', locals())
 
 
 def hot_page(request):
-    username = request.COOKIES.get('username','')  #读取cookie
+    """
+    热点新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -93,6 +115,11 @@ def hot_page(request):
 
 
 def vhot_page(request):
+    """
+    访客模式的热点新闻
+    :param request:
+    :return:
+    """
     hot_news = NewsModel.objects.filter(Classification='hot')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -102,7 +129,12 @@ def vhot_page(request):
 
 
 def social_page(request):
-    username = request.COOKIES.get('username','')  #读取cookie
+    """
+    社会新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     social_news = NewsModel.objects.filter(Classification='social')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -117,6 +149,11 @@ def social_page(request):
 
 
 def vsocial_page(request):
+    """
+    访客模式的社会新闻
+    :param request:
+    :return:
+    """
     social_news = NewsModel.objects.filter(Classification='social')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -127,7 +164,12 @@ def vsocial_page(request):
 
 
 def amusement_page(request):
-    username = request.COOKIES.get('username','')  #读取cookie
+    """
+    娱乐新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     amusement_news = NewsModel.objects.filter(Classification='amusement')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -142,6 +184,11 @@ def amusement_page(request):
 
 
 def vamusement_page(request):
+    """
+    访客模式的娱乐新闻
+    :param request:
+    :return:
+    """
     amusement_news = NewsModel.objects.filter(Classification='amusement')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -152,7 +199,12 @@ def vamusement_page(request):
 
 
 def international_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    国际新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     international_news = NewsModel.objects.filter(Classification='international')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -167,6 +219,11 @@ def international_page(request):
 
 
 def vinternational_page(request):
+    """
+    访客模式的国际新闻
+    :param request:
+    :return:
+    """
     international_news = NewsModel.objects.filter(Classification='international')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -177,7 +234,12 @@ def vinternational_page(request):
 
 
 def domestic_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    国内新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     domestic_news = NewsModel.objects.filter(Classification='domestic')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -192,6 +254,11 @@ def domestic_page(request):
 
 
 def vdomestic_page(request):
+    """
+    访客模式的国内新闻
+    :param request:
+    :return:
+    """
     domestic_news = NewsModel.objects.filter(Classification='domestic')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -202,7 +269,12 @@ def vdomestic_page(request):
 
 
 def sports_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    体育新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     sports_news = NewsModel.objects.filter(Classification='sports')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -217,6 +289,11 @@ def sports_page(request):
 
 
 def vsports_page(request):
+    """
+    访客模式的体育新闻
+    :param request:
+    :return:
+    """
     sports_news = NewsModel.objects.filter(Classification='sports')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -227,7 +304,12 @@ def vsports_page(request):
 
 
 def military_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    军事新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     military_news = NewsModel.objects.filter(Classification='military')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -242,6 +324,11 @@ def military_page(request):
 
 
 def vmilitary_page(request):
+    """
+    访客模式的军事新闻
+    :param request:
+    :return:
+    """
     military_news = NewsModel.objects.filter(Classification='military')
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
@@ -252,7 +339,12 @@ def vmilitary_page(request):
 
 
 def contact_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    用户反馈据
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     if len(username):
         return render_to_response("contact.html", locals())
     else:
@@ -261,12 +353,17 @@ def contact_page(request):
 
 
 def detail_page(request):
-    username = request.COOKIES.get('username', '')  #读取cookie
+    """
+    详情页面
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
     zan_count = news.Likes
     if len(username):
-        #新闻与评论的内外键，查询到评论内容
+        # 新闻与评论的内外键，查询到评论内容
         comments = CommentsModel.objects.filter(News__Title=title)
         urls = UrlsModel.objects.filter(News__Title=title)
         return render_to_response("detail.html", locals())
@@ -276,6 +373,11 @@ def detail_page(request):
 
 
 def vdetail_page(request):
+    """
+    访客模式的详情页面
+    :param request:
+    :return:
+    """
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
     urls = UrlsModel.objects.filter(News__Title=title)
@@ -283,6 +385,11 @@ def vdetail_page(request):
 
 
 def add_comment(request):
+    """
+    增加评论
+    :param request:
+    :return:
+    """
     comment_get = request.GET
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
@@ -295,14 +402,19 @@ def add_comment(request):
     )
     new_comment.save()
     zan_count = news.Likes
-    username = request.COOKIES.get('username', '')  #读取cookie
+    username = request.COOKIES.get('username', '')  # 读取cookie
     comments = CommentsModel.objects.filter(News__Title=title)
     return render_to_response("detail.html", locals())
 
 
 def add_likes(request):
+    """
+    点赞
+    :param request:
+    :return:
+    """
     getlikes = request.GET
-    #获取用户ip
+    # 获取用户ip
     if request.META.has_key('HTTP_X_FORWARDED_FOR'):
         ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
@@ -316,13 +428,13 @@ def add_likes(request):
         User=user,
         Ip=ip,
         News=news)
-    #判断是否是同一用户、同一IP对此新闻点赞
 
+    # 判断是否是同一用户、同一IP对此新闻点赞
     thisLikes = LikesModel.objects.filter(News=news)
     flag = 0
     if thisLikes:
         for like in thisLikes:
-            #先修改成用户
+            # 先修改成用户
             if user == like.User:
                 flag = 0
                 break
@@ -333,17 +445,22 @@ def add_likes(request):
             news.Likes += 1
             news.save()
     else:
-        #此新闻还没一个赞
+        # 此新闻还没一个赞
         newlikes.save()
         news.Likes += 1
         news.save()
     zan_count = news.Likes
-    #comments = CommentsModel.objects.filter(News__Title=title)
-    #return render_to_response("detail.html", locals())
+    # comments = CommentsModel.objects.filter(News__Title=title)
+    # return render_to_response("detail.html", locals())
     return HttpResponse(str(zan_count))
 
 
 def register(request):
+    """
+    注册
+    :param request:
+    :return:
+    """
     if request.method == 'POST':
         post = request.POST
         result_regist = {"status": False, "data": ""}
@@ -371,6 +488,11 @@ def register(request):
 
 
 def login(request):
+    """
+    登陆
+    :param request:
+    :return:
+    """
     if request.method == 'POST':
         post = request.POST
         # 用什么来验证？？这是一个问题
@@ -386,10 +508,10 @@ def login(request):
                 else:
                     user = UserModel.objects.filter(Name=Name, Password=Password)
                     if user:
-                        #登录成功
+                        # 登录成功
                         result = {"status": True, "data": "登录成功"}
                         response = HttpResponseRedirect('/news/home/', locals())
-                        response.set_cookie('username', Name, 3600)  #写入cookie
+                        response.set_cookie('username', Name, 3600)  # 写入cookie
                         return response
                     else:
                         result = {"status": False, "data": "用户名或密码错误"}
@@ -400,8 +522,13 @@ def login(request):
 
 
 def logout(request):
-     response = HttpResponseRedirect('/User/login/', locals())
-     response.delete_cookie('username')
-     return response
+    """
+    注销
+    :param request:
+    :return:
+    """
+    response = HttpResponseRedirect('/User/login/', locals())
+    response.delete_cookie('username')
+    return response
 
 
