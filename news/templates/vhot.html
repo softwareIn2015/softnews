@@ -110,7 +110,9 @@ $(document).ready(function() {
                 <a href="/news/vdetail/?Title={{news.Title}}" style="text-decoration:none;">
                     <h3><li>{{news.Title}}</li></h3>
                     <div class="cleaner h20"></div>
-                    <img src="{{news.Image}}"  alt="{{news.image}}" />
+                    {% if news.Image != ' ' %}
+                        <img src="{{news.Image}}"  alt="正在加载中" height="200" width="200"/>
+                    {% endif %}
                     <div class="cleaner h20"></div>
                 </a>
             {% endfor %}
