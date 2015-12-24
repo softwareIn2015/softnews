@@ -7,6 +7,7 @@
 <meta name="description" content="Newspaper Theme, Contact Page, Contact Form, free Template from www.cssmoban.com" />
 <link href="/static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
 
+
 <script language="javascript" type="text/javascript">
 function clearText(field)
 {
@@ -83,17 +84,15 @@ ddsmoothmenu.init({
         </div>
         <div class="cleaner"></div>
     </div>  
-    
+
     <div id="templatemo_content">
-  		<h1>用户信息</h1>
         <h3>
-         <table border="0" frame="hsides">
-             <tr><td width="120" height="50">用户名：</td><td width="200">{{user.Name}}</td></tr>
-              <tr><td width="120" height="50">邮箱：</td><td width="200">{{user.Email}}</td></tr>
-              <tr><td width="120" height="50">密码：</td><td width="200">{{user.Password}}</td></tr>
+         <table class="table table-hover">
+             <tr class="success"><td>用户名</td><td>{{user.Name}}</td></tr>
+             <tr  class="warning"><td>邮箱</td><td>{{user.Email}}</td></tr>
+             <tr  class="danger"><td>密码</td><td>{{user.Password}}</td></tr>
          </table>
-            </h3>
-        
+        </h3>
     </div> <!-- end of content -->
     <div id="templatemo_sidebar">
         <div class="sb_box">
