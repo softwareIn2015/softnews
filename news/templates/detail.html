@@ -64,6 +64,7 @@ else
 }
 
  //分页管理
+ function page(){
 var pageSize = 15;    //每页显示的记录条数
 var curPage=0;        //当前页
 var lastPage;        //最后页
@@ -165,6 +166,7 @@ function displayPage(){
 		if((i>=begin && i<=end) || i==0 )//显示begin<=x<=end的记录
 			$(this).show();
 	});
+ }
  }
 </script>
 </head>

@@ -5,7 +5,6 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponse, HttpResponseRedirect
 from models import *
 
-
 def search(request):
     """
     搜索
@@ -426,6 +425,7 @@ def vdetail_page(request):
     title = request.GET['Title']
     news = NewsModel.objects.get(Title=title)
     urls = UrlsModel.objects.filter(News__Title=title)
+    detail_urls = urls[0]
     classfication = news.Classification
     hot_news = NewsModel.objects.filter(Classification=classfication).order_by('Likes')
     len_news = len(hot_news)
