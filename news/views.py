@@ -525,8 +525,6 @@ def add_likes(request):
         news.Likes += 1
         news.save()
     zan_count = news.Likes
-    # comments = CommentsModel.objects.filter(News__Title=title)
-    # return render_to_response("detail.html", locals())
     return HttpResponse(str(zan_count))
 
 

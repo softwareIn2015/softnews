@@ -54,21 +54,21 @@ function check(){
 //点赞的局部刷新
 function like_num(num){
 var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
   xmlhttp.onreadystatechange=function()
-  {
-  if(xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)
-  {
-  document.getElementById("praise").innerHTML=xmlhttp.responseText;
-  }
-  }
+    {
+      if(xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)
+        {
+           document.getElementById("praise").innerHTML=xmlhttp.responseText;
+      }
+    }
   var title=document.getElementById("title").innerHTML;
   xmlhttp.open("GET","/news/add_likes/?zan="+num+'&'+'Title='+title,true);
   xmlhttp.send();
@@ -186,19 +186,9 @@ else
 		    <div class="row-fluid">
                 <table class="table table-striped table-bordered table-hover datatable">
                     <h3><a name="location">评论列表：</a></h3>
-                    <a  href="#" id="btn1" style="text-decoration:none;">首页</a>
-                    <a  href="#" id="btn2" >上一页</a>
-                    <a  href="#" id="btn3" >下一页</a>
-                    <a  href="#" id="btn4" style="text-decoration:none;">尾页</a>
-                    <a style="text-decoration:none;">转到 </a>
-                    <input id="changePage" type="text" size="1" maxlength="4"/>
-                    <a style="text-decoration:none;">页 </a>
-                    <a href="#" id="btn5" style="text-decoration:none;">跳转</a>
                     <table border="0"  width="280" >
                         {% for comment in comments %}
-                        <tr><td align="left"><h4>{{comment.User.Name}}:</h4></td>
-                        </tr>
-                        <tr>
+                        <tr><td align="left"><h4><strong>{{comment.User.Name}}:</strong></h4></td>
                             <td><h5>{{comment.Text}}</h5></td>
                         </tr>
                         {% endfor %}
