@@ -52,7 +52,7 @@ function check(){
 
 <script type="text/javascript">
 //点赞的局部刷新
-function likes_num(num){
+function likes_num(){
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -70,7 +70,7 @@ else
   }
   }
   var title=document.getElementById("title").innerHTML;
-  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&Title='+title,true);
+  xmlhttp.open("GET","/news/add_likes/?&Title="+title,true);
   xmlhttp.send();
 }
 </script>
@@ -132,7 +132,7 @@ else
                 <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
                 </div>
               <div  align="center">
-                     <input type="button" onclick="likes_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
+                     <input type="button" onclick="likes_num()"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
                      <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
               </div>
             </div>
