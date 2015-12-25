@@ -101,18 +101,27 @@ ddsmoothmenu.init({
     	
     	<div class="col_3">
         	<h2>热点</h2>
+            {% if len_hot_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <p><em>{{hot.Title}}</em></p>
             <p>{{hot.Summary}} </p>
             <a href="/news/detail/?Title={{hot.Title}}" class="more">More</a>
         </div>
         <div class="col_3">
         	<h2>社会</h2>
+            {% if len_social_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <p><em>{{social.Title}} </em></p>
             <p>{{social.Summary}}</p>
             <a href="/news/detail/?Title={{social.Title}}" class="more">More</a>
         </div>
         <div class="col_3 rmc">
         	<h2>娱乐</h2>
+            {% if len_amusement_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <p><em>{{amusement.Title}}</em></p>
             <p>{{amusement.Summary}}</p>
             <a href="/news/detail/?Title={{amusement.Title}}" class="more">More</a>
@@ -122,6 +131,9 @@ ddsmoothmenu.init({
         
     	<div class="col_4">
         	<h3>国际新闻</h3>
+            {% if len_international_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <ul>
                 {% for news in international_news %}
             	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
@@ -130,6 +142,9 @@ ddsmoothmenu.init({
 		</div>
         <div class="col_4">
         	<h3>国内新闻</h3>
+            {% if len_domestic_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <ul>
                 {% for news in domestic_news %}
             	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
@@ -138,6 +153,9 @@ ddsmoothmenu.init({
         </div>
         <div class="col_4">
         	<h3>军事新闻</h3>
+            {% if len_military_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <ul>
                 {% for news in military_news %}
             	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>
@@ -146,6 +164,9 @@ ddsmoothmenu.init({
         </div>
         <div class="col_4 rmc">
         	<h3>体育</h3>
+            {% if len_sports_news == 0%}
+                <p><em>暂无对应新闻</em></p>
+            {% endif %}
             <ul>
                 {% for news in sports_news %}
             	    <li><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></li>

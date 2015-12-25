@@ -30,30 +30,41 @@ def homepage(request):
     :param request:
     :return:
     """
-    username = request.COOKIES.get('username', '')  # 读取cookie
+    username = request.COOKIES.get('username', '')  # 读取cookie'
+
     hot_news = NewsModel.objects.filter(Classification='hot')
-    hot = hot_news[0]  # 只使用热门新闻的第一个
+    len_hot_news = len(hot_news)
+    if len_hot_news > 0:
+        hot = hot_news[0]  # 只使用热门新闻的第一个
 
     social_news = NewsModel.objects.filter(Classification='social')
-    social = social_news[0]  # 只使用社会新闻的第一个
+    len_social_news = len(social_news)
+    if len_social_news > 0:
+        social = social_news[0]  # 只使用社会新闻的第一个
 
     amusement_news = NewsModel.objects.filter(Classification='amusement')
-    amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
+    len_amusement_news = len(amusement_news)
+    if len_amusement_news > 0:
+        amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
 
     international_news = NewsModel.objects.filter(Classification='international')
-    if len(international_news) > 6:  # 只保留前六个
+    len_international_news = len(international_news)
+    if len_international_news > 6:  # 只保留前六个
         international_news = international_news[0:6]
 
     domestic_news = NewsModel.objects.filter(Classification='domestic')
-    if len(domestic_news) > 6:  # 只保留前六个
+    len_domestic_news = len(domestic_news)
+    if len_domestic_news > 6:  # 只保留前六个
         domestic_news = domestic_news[0:6]
 
     military_news = NewsModel.objects.filter(Classification='military')
-    if len(military_news) > 6:  # 只保留前六个
+    len_military_news = len(military_news)
+    if len_military_news > 6:  # 只保留前六个
         military_news = military_news[0:6]
 
     sports_news = NewsModel.objects.filter(Classification='sports')
-    if len(sports_news) > 6:  # 只保留前六个
+    len_sports_news = len(sports_news)
+    if len_sports_news > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
 
     if len(username) > 0:
@@ -70,29 +81,40 @@ def vhomepage(request):
     :return:
     """
     hot_news = NewsModel.objects.filter(Classification='hot')
-    hot = hot_news[0]  # 只使用热门新闻的第一个
+    len_hot_news = len(hot_news)
+    if len_hot_news > 0:
+        hot = hot_news[0]  # 只使用热门新闻的第一个
 
     social_news = NewsModel.objects.filter(Classification='social')
-    social = social_news[0]  # 只使用社会新闻的第一个
+    len_social_news = len(social_news)
+    if len_social_news > 0:
+        social = social_news[0]  # 只使用社会新闻的第一个
 
     amusement_news = NewsModel.objects.filter(Classification='amusement')
-    amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
+    len_amusement_news = len(amusement_news)
+    if len_amusement_news > 0:
+        amusement = amusement_news[0]  # 只使用娱乐新闻的第一个
 
     international_news = NewsModel.objects.filter(Classification='international')
-    if len(international_news) > 6:  # 只保留前六个
+    len_international_news = len(international_news)
+    if len_international_news > 6:  # 只保留前六个
         international_news = international_news[0:6]
 
     domestic_news = NewsModel.objects.filter(Classification='domestic')
-    if len(domestic_news) > 6:  # 只保留前六个
+    len_domestic_news = len(domestic_news)
+    if len_domestic_news > 6:  # 只保留前六个
         domestic_news = domestic_news[0:6]
 
     military_news = NewsModel.objects.filter(Classification='military')
-    if len(military_news) > 6:  # 只保留前六个
+    len_military_news = len(military_news)
+    if len_military_news > 6:  # 只保留前六个
         military_news = military_news[0:6]
 
     sports_news = NewsModel.objects.filter(Classification='sports')
-    if len(sports_news) > 6:  # 只保留前六个
+    len_sports_news = len(sports_news)
+    if len_sports_news > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
+
     return render_to_response('vhome.html', locals())
 
 
@@ -441,14 +463,14 @@ def add_comment(request):
     :param request:
     :return:
     """
-    comment_get = request.GET
+    comment_post = request.POST
     username = request.COOKIES.get('username', '')
     user = UserModel.objects.get(Name=username)
-    title = comment_get['sendtitle']
+    title = comment_post['sendtitle']
     news = NewsModel.objects.get(Title=title)
     new_comment = CommentsModel(
         User=user,
-        Text=comment_get['text'],
+        Text=comment_post['text'],
         News=news
     )
     news.Comments += 1
