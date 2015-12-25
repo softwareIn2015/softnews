@@ -63,7 +63,7 @@ ddsmoothmenu.init({
         </div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-              	<li><a href="/news/home/" class="selected">主页</a></li>
+              	<li><a href="/" class="selected">主页</a></li>
           		<li><a href="/news/hot/">热点</a></li>
           		<li><a href="/news/social/">社会</a></li>
                 <li><a href="/news/amusement/">娱乐</a></li>
@@ -85,7 +85,7 @@ ddsmoothmenu.init({
     <div id="content_top">
         <div id="page_title"> 中国好新闻</div>
           <div id="search_box">
-            <form action="/news/search/" method="post">
+            <form action="/news/vsearch/" method="post">
                 <input type="text" value="Search" name="searchInfo" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
                 <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
             </form>
@@ -108,31 +108,31 @@ ddsmoothmenu.init({
            <!-- 轮播（Carousel）项目 -->
            <div class="carousel-inner">
               <div class="item active" align="center">
-                 <a href="/news/detail/?Title={{carousel_hot.Title}}"> <img src="{{carousel_hot.Image}}" alt="First slide"></a>
+                 <a href="/news/vdetail/?Title={{carousel_hot.Title}}"> <img src="{{carousel_hot.Image}}" alt="First slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_hot.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_social.Title}}"> <img src="{{carousel_social.Image}}" alt="Second slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_social.Title}}"> <img src="{{carousel_social.Image}}" alt="Second slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_social.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_domestic.Title}}"> <img src="{{carousel_domestic.Image}}" alt="Third slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_domestic.Title}}"> <img src="{{carousel_domestic.Image}}" alt="Third slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_domestic.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_international.Title}}"> <img src="{{carousel_international.Image}}" alt="Third slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_international.Title}}"> <img src="{{carousel_international.Image}}" alt="Third slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_international.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_sports.Title}}"> <img src="{{carousel_sports.Image}}" alt="Third slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_sports.Title}}"> <img src="{{carousel_sports.Image}}" alt="Third slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_sports.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_amusement.Title}}"> <img src="{{carousel_amusement.Image}}" alt="Third slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_amusement.Title}}"> <img src="{{carousel_amusement.Image}}" alt="Third slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_amusement.Title}}</strong></p></div>
               </div>
               <div class="item" align="center">
-                  <a href="/news/detail/?Title={{carousel_military.Title}}"> <img src="{{carousel_military.Image}}" alt="Third slide"></a>
+                  <a href="/news/vdetail/?Title={{carousel_military.Title}}"> <img src="{{carousel_military.Image}}" alt="Third slide"></a>
                   <div class="carousel-caption"><p><strong>{{carousel_military.Title}}</strong></p></div>
               </div>
            </div>

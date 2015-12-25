@@ -69,7 +69,7 @@ ddsmoothmenu.init({
         </div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-              	<li><a href="/news/home/">主页</a></li>
+              	<li><a href="/">主页</a></li>
           		<li><a href="/news/hot/">热点</a></li>
           		<li><a href="/news/social/">社会</a></li>
                 <li><a href="/news/amusement/">娱乐</a></li>
@@ -89,7 +89,7 @@ ddsmoothmenu.init({
     <div id="content_top">
      <div id="page_title">中国好新闻</div>
         <div id="search_box">
-            <form action="/news/search/" method="post">
+            <form action="/news/vsearch/" method="post">
                 <input type="text" value="Search" name="searchInfo" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
                 <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
             </form>
@@ -148,7 +148,7 @@ ddsmoothmenu.init({
            	 <h4>{{most_like.Title}}</h4>
              <p>{{most_like.Summary}}</p>
             <div class="cleaner"></div>
-            <a href="/news/detail/?Title={{most_like.Title}}" class="more">More</a>
+            <a href="/news/vdetail/?Title={{most_like.Title}}" class="more">More</a>
         </div>
         </div>
         

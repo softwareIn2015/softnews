@@ -17,8 +17,32 @@ def search(request):
     post = request.POST
     newsInfo = post['searchInfo']
     searchNews = NewsModel.objects.filter(Title__contains=newsInfo)
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if searchNews:
       return render_to_response("search.html", locals())
+    else:
+        response = HttpResponse('未搜索到')
+        return response
+
+
+def vsearch(request):
+    """
+    访客模式的搜索结果
+    :param request:
+    :return:
+    """
+    post = request.POST
+    newsInfo = post['searchInfo']
+    searchNews = NewsModel.objects.filter(Title__contains=newsInfo)
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
+    if searchNews:
+        return render_to_response("vsearch.html", locals())
     else:
         response = HttpResponse('未搜索到')
         return response
@@ -258,7 +282,8 @@ def hot_page(request):
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
     len_ = len(hot_news)
-    most_like = hot_news[len_ - 1]
+    if len_ > 0:
+        most_like = hot_news[len_ - 1]
     if len(username) > 0:
         return render_to_response("hot.html", locals())
     else:
@@ -274,7 +299,8 @@ def vhot_page(request):
     """
     hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     # all_news = NewsModel.objects.all()
     # all_news = sorted(all_news, key=lambda t: t.Likes, reverse=True)
     # most_like = all_news[0]
@@ -294,7 +320,8 @@ def social_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='social').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("social.html", locals())
     else:
@@ -314,7 +341,8 @@ def vsocial_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='social').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vsocial.html", locals())
 
 
@@ -331,7 +359,8 @@ def amusement_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='amusement').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("amusement.html", locals())
     else:
@@ -351,7 +380,8 @@ def vamusement_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='amusement').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vamusement.html", locals())
 
 
@@ -368,7 +398,8 @@ def international_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='international').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username) > 0:
         return render_to_response("international.html", locals())
     else:
@@ -388,7 +419,8 @@ def vinternational_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='international').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vinternational.html", locals())
 
 
@@ -405,7 +437,8 @@ def domestic_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='domestic').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("domestic.html", locals())
     else:
@@ -425,7 +458,8 @@ def vdomestic_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='domestic').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vdomestic.html", locals())
 
 
@@ -442,7 +476,8 @@ def sports_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='sports').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("sports.html", locals())
     else:
@@ -462,7 +497,8 @@ def vsports_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='sports').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vsports.html", locals())
 
 
@@ -479,7 +515,8 @@ def military_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='military').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("military.html", locals())
     else:
@@ -499,7 +536,8 @@ def vmilitary_page(request):
     # most_like = all_news[0]
     hot_news = NewsModel.objects.filter(Classification='military').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vmilitary.html", locals())
 
 
@@ -512,7 +550,8 @@ def contact_page(request):
     username = request.COOKIES.get('username', '')  # 读取cookie
     hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     if len(username):
         return render_to_response("contact.html", locals())
     else:
@@ -539,7 +578,8 @@ def submit_advice(request):
         newsadvice.save()
     hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("contact.html", locals())
 
 
@@ -555,7 +595,8 @@ def detail_page(request):
     classfication = news.Classification
     hot_news = NewsModel.objects.filter(Classification=classfication).order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     zan_count = news.Likes
     if len(username):
         # 新闻与评论的内外键，查询到评论内容
@@ -581,7 +622,8 @@ def vdetail_page(request):
     classfication = news.Classification
     hot_news = NewsModel.objects.filter(Classification=classfication).order_by('Likes')
     len_news = len(hot_news)
-    most_like = hot_news[len_news - 1]
+    if len_news > 0:
+        most_like = hot_news[len_news - 1]
     return render_to_response("vdetail.html", locals())
 
 
@@ -672,23 +714,14 @@ def register(request):
         if user:
             result_regist = {"status": False, "data": "用户名已注册"}
         else:
-            if regist_name == "" or regist_name.isspace():
-                result_regist = {"status": False, "data": "用户名不为空"}
-            else:
-                if regist_email == "" or regist_email.isspace():
-                    result_regist = {"status": False, "data": "邮箱不能为空"}
-                else:
-                    if regist_password == "" or regist_password.isspace():
-                        result_regist = {"status": False, "data": "密码不能为空"}
-                    else:
-                        new_user = UserModel(
-                            Name=regist_name,
-                            Email=regist_email,
-                            Password=regist_password)
-                        new_user.save()
-                        result_regist = {"status": True, "data": "注册成功"}
-                        return HttpResponseRedirect('/User/login/', locals())
-    return render_to_response("register.html", locals())
+            new_user = UserModel(
+                Name=regist_name,
+                Email=regist_email,
+                Password=regist_password)
+            new_user.save()
+            result_regist = {"status": True, "data": "注册成功"}
+            return HttpResponseRedirect('/User/login/', locals())
+    return render_to_response("regist_news.html", locals())
 
 
 def login(request):
@@ -703,24 +736,18 @@ def login(request):
         if post:
             Name = post['name']
             Password = post['password']
-            result = {"status": False, "data":""}
-            if Name == "" or Name.isspace():
-                result = {"status": False, "data": "用户名不能为空"}
+            result = {"status": False, "data": ""}
+            user = UserModel.objects.filter(Name=Name, Password=Password)
+            if user:
+                # 登录成功
+                result = {"status": True, "data": "登录成功"}
+                response = HttpResponseRedirect('/news/home/', locals())
+                response.set_cookie('username', Name, 3600*3)  # 写入cookie 登录时间是3个小时
+                return response
             else:
-                if Password == "" or Password.isspace():
-                    result = {"status": False, "data": "密码不能为空"}
-                else:
-                    user = UserModel.objects.filter(Name=Name, Password=Password)
-                    if user:
-                        # 登录成功
-                        result = {"status": True, "data": "登录成功"}
-                        response = HttpResponseRedirect('/news/home/', locals())
-                        response.set_cookie('username', Name, 3600*3)  # 写入cookie 登录时间是3个小时
-                        return response
-                    else:
-                        result = {"status": False, "data": "用户名或密码错误"}
-                        return render_to_response('login.html', locals())
-    return render_to_response('login.html', locals())
+                result = {"status": False, "data": "用户名或密码错误"}
+                return render_to_response('login_news.html', locals())
+    return render_to_response('login_news.html', locals())
 
 
 def logout(request):

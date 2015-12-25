@@ -3,7 +3,6 @@
 import urllib
 from bs4 import BeautifulSoup as bs
 import MySQLdb
-import lxml
 
 
 def get_html(my_url):
@@ -22,12 +21,15 @@ def delete():
     删除数据
     :return:
     """
-    conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
+    conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
     cur = conn.cursor()
     conn.select_db('newsdb')
     cur.execute('SET foreign_key_checks=0')
     cur.execute('truncate table news_urlsmodel')
     cur.execute('truncate table news_newsmodel')
+    cur.execute('truncate table news_commentsmodel')
+    cur.execute('truncate table news_likesmodel')
+    cur.execute('truncate table news_advicemodel')
     cur.execute('SET foreign_key_checks=1')
     cur.close()
     conn.close()
@@ -39,7 +41,7 @@ def show_data():
     :param cur: 数据库操作的cursor
     :return:
     """
-    conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
+    conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
     cur = conn.cursor()
     conn.select_db('newsdb')
     cur.execute('SET NAMES utf8;')
@@ -98,7 +100,7 @@ class Bugger:
         except IOError:
             return
         # print self.html
-        self.soup = bs(self.html, 'lxml')
+        self.soup = bs(self.html)
         # print self.soup.original_encoding
         self.classification = classfication_
         self.source = source_
@@ -117,7 +119,7 @@ class Bugger:
 
     def scripy_sina(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')
@@ -172,7 +174,7 @@ class Bugger:
                         except IOError:
                             continue
 
-                        detail_soup = bs(detail_html, 'lxml')
+                        detail_soup = bs(detail_html)
                         detail_news = detail_soup.find_all('div', id='artibody')
 
                         # 寻找摘要
@@ -230,7 +232,7 @@ class Bugger:
 
     def scripy_163(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')
@@ -271,12 +273,8 @@ class Bugger:
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                         url_value)
-                            print '163 multi'
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             continue
                         else:  # 整合新闻
-                            print '163 make'
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values(%s,%s,%s)', url_value)
                             continue
@@ -288,7 +286,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html, 'lxml')
+                    detail_soup = bs(detail_html)
                     try:
                         detail_news = detail_soup.find_all('div', class_='end-text')
                         if len(detail_news) == 0:
@@ -354,7 +352,7 @@ class Bugger:
 
     def scripy_sohu(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')
@@ -412,7 +410,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html, 'lxml')
+                    detail_soup = bs(detail_html)
                     try:
                         detail_news = detail_soup.find_all('div', class_='text clear')
                         if len(detail_news) == 0:
