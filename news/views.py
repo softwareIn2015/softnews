@@ -4,6 +4,8 @@ from django.template import Context, RequestContext
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponse, HttpResponseRedirect
 from models import *
+from Bug import *
+
 
 def search(request):
     """
@@ -595,3 +597,54 @@ def userinfo(request):
     hot_news = NewsModel.objects.filter(Classification='hot')
     most_like = hot_news[1]
     return render_to_response("userInfo.html", locals())
+
+
+def scripy(request):
+    """
+    爬取新闻信息
+    :param request:
+    :return:
+    """
+    flag = 0
+    # 先将数据库中的东西删掉
+    delete()
+
+    # 新浪的信息
+    news_urls_sina = ['http://news.sina.com.cn/society/', 'http://news.sina.com.cn/china/',
+                      'http://news.sina.com.cn/world/', 'http://mil.news.sina.com.cn/', 'http://sports.sina.com.cn/',
+                      'http://ent.sina.com.cn/', 'http://news.sina.com.cn/']  # 新闻链接
+    classfications_sina = ['social', 'domestic', 'international', 'military', 'sports', 'amusement', 'hot']  # 分类
+    sources_sina = ['sina', 'sina', 'sina', 'sina', 'sina', 'sina', 'sina']  # 新闻来源
+    # 链接在html中div的类别
+    news_class_sina = ['blk12', 'blk12', 'blk12', 'blk2 imp', 'phdnews_txt fr', 'important-news', 'p_middle']
+    image_class_sina = ['img_wrapper', 'img_wrapper', 'img_wrapper', 'img_wrapper', 'img_wrapper', 'img_wrapper',
+                        'img_wrapper']  # 图片在html中div的类
+    for i in range(len(news_urls_sina)):
+        Bugger(news_urls_sina[i], classfications_sina[i], sources_sina[i], news_class_sina[i], image_class_sina[i])
+
+    # 网易的信息
+    news_urls_163 = ['http://news.163.com/shehui/', 'http://news.163.com/domestic/', 'http://news.163.com/world/',
+                     'http://war.163.com/', 'http://sports.163.com/', 'http://ent.163.com/',
+                     'http://news.163.com/']  # 新闻链接
+    classfications_163 = ['social', 'domestic', 'international', 'military', 'sports', 'amusement', 'hot']  # 分类
+    sources_163 = ['163', '163', '163', '163', '163', '163', '163']  # 新闻来源
+    # 链接在html中div的id
+    news_class_163 = ['area-left', 'area-left', 'img', 'area-main', 'mod_bd', 'news_textList_top', 'ns-mr60']
+    # 图片在html中div的类
+    image_class_163 = ['f_center', 'f_center', 'f_center', 'f_center', 'f_center', 'f_center', 'f_center']
+    for i in range(len(news_urls_163)):
+        Bugger(news_urls_163[i], classfications_163[i], sources_163[i], news_class_163[i], image_class_163[i])
+
+    # 搜狐的信息
+    news_urls_sohu = ['http://news.sohu.com/shehuixinwen.shtml', 'http://news.sohu.com/guoneixinwen.shtml',
+                      'http://news.sohu.com/guojixinwen.shtml', 'http://mil.sohu.com/', 'http://sports.sohu.com/',
+                      'http://cul.sohu.com/culturenews/', 'http://news.sohu.com/']  # 新闻链接
+    classfications_sohu = ['social', 'domestic', 'international', 'military', 'sports', 'amusement', 'hot']  # 分类
+    sources_sohu = ['sohu', 'sohu', 'sohu', 'sohu', 'sohu', 'sohu', 'sohu']  # 新闻来源
+    news_class_sohu = ['new-article', 'new-article', 'new-article', 'c-m-r', 'center', 'f14list', 'r']
+    # 链接在html中div的class c-m-r center f14list r 万一变了就坑爹了
+    image_class_sohu = ['', '', '', '', '', '', '']  # 图片在html中div的类,搜狐不用这个
+    for i in range(len(news_urls_sohu)):
+        Bugger(news_urls_sohu[i], classfications_sohu[i], sources_sohu[i], news_class_sohu[i], image_class_sohu[i])
+    flag = 1
+    return render_to_response('scripy.html', locals())
