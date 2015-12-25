@@ -67,6 +67,70 @@ def homepage(request):
     if len_sports_news > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
 
+    # 轮播的新闻
+    # 热点类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_hot = news
+                break
+
+    # 社会类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='social')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_social = news
+                break
+
+    # 国内类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='domestic')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_domestic = news
+                break
+
+    # 国际类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='international')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_international = news
+                break
+
+    # 体育类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='sports')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_sports = news
+                break
+
+    # 娱乐类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='amusement')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_amusement = news
+                break
+
+    # 军事类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='military')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_military = news
+                break
+
     if len(username) > 0:
         return render_to_response('home.html', locals())
     else:
@@ -114,6 +178,70 @@ def vhomepage(request):
     len_sports_news = len(sports_news)
     if len_sports_news > 6:  # 只保留前六个
         sports_news = sports_news[0:6]
+
+    # 轮播的新闻
+    # 热点类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='hot')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_hot = news
+                break
+
+    # 社会类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='social')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_social = news
+                break
+
+    # 国内类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='domestic')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_domestic = news
+                break
+
+    # 国际类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='international')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_international = news
+                break
+
+    # 体育类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='sports')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_sports = news
+                break
+
+    # 娱乐类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='amusement')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_amusement = news
+                break
+
+    # 军事类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='military')
+    len_news = len(hot_news)
+    if len_news != 0:
+        for news in hot_news:
+            if news.Image != ' ':
+                carousel_military = news
+                break
 
     return render_to_response('vhome.html', locals())
 

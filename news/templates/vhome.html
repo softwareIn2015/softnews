@@ -6,7 +6,8 @@
 <meta name="keywords" content="newspaper theme, black, white, red, free templates, web design, CSS, HTML" />
 <meta name="description" content="Newspaper Theme - free CSS Template from www.cssmoban.com" />
 <link href="/static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
-
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript">
 function clearText(field)
 {
@@ -90,8 +91,50 @@ ddsmoothmenu.init({
             </form>
         </div>
         <div class="cleaner"></div>
-    </div>  
-    
+    </div>
+
+    <div id="templatemo_slider">
+        <div id="myCarousel" class="carousel slide">
+           <!-- 轮播（Carousel）指标 -->
+           <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
+              <li data-target="#myCarousel" data-slide-to="5"></li>
+              <li data-target="#myCarousel" data-slide-to="6"></li>
+           </ol>
+           <!-- 轮播（Carousel）项目 -->
+           <div class="carousel-inner">
+              <div class="item active" align="center">
+                 <a href="/news/vdetail/?Title={{carousel_hot.Title}}"> <img src="{{carousel_hot.Image}}" alt="First slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_social.Title}}"> <img src="{{carousel_social.Image}}" alt="Second slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_domestic.Title}}"> <img src="{{carousel_domestic.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_international.Title}}"> <img src="{{carousel_international.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_sports.Title}}"> <img src="{{carousel_sports.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_amusement.Title}}"> <img src="{{carousel_amusement.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/vdetail/?Title={{carousel_military.Title}}"> <img src="{{carousel_military.Image}}" alt="Third slide"></a>
+              </div>
+           </div>
+           <!-- 轮播（Carousel）导航 -->
+           <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+           <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+
     <div id="no_sidebar">
     	
     	<div class="col_3">

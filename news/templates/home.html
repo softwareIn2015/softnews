@@ -84,9 +84,7 @@ ddsmoothmenu.init({
             <br style="clear: left" />
         </div> <!-- end of templatemo_menu -->
     </div> <!-- end of header -->
-    
 
-    
     <div id="content_top">
         <div id="page_title"> 中国好新闻</div>
         <div id="search_box">
@@ -97,7 +95,47 @@ ddsmoothmenu.init({
         </div>
         <div class="cleaner"></div>
     </div>  
-    
+    <div id="templatemo_slider">
+        <div id="myCarousel" class="carousel slide">
+           <!-- 轮播（Carousel）指标 -->
+           <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
+              <li data-target="#myCarousel" data-slide-to="5"></li>
+              <li data-target="#myCarousel" data-slide-to="6"></li>
+           </ol>
+           <!-- 轮播（Carousel）项目 -->
+           <div class="carousel-inner">
+              <div class="item active" align="center">
+                 <a href="/news/detail/?Title={{carousel_hot.Title}}"> <img src="{{carousel_hot.Image}}" alt="First slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_social.Title}}"> <img src="{{carousel_social.Image}}" alt="Second slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_domestic.Title}}"> <img src="{{carousel_domestic.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_international.Title}}"> <img src="{{carousel_international.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_sports.Title}}"> <img src="{{carousel_sports.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_amusement.Title}}"> <img src="{{carousel_amusement.Image}}" alt="Third slide"></a>
+              </div>
+              <div class="item" align="center">
+                  <a href="/news/detail/?Title={{carousel_military.Title}}"> <img src="{{carousel_military.Image}}" alt="Third slide"></a>
+              </div>
+           </div>
+           <!-- 轮播（Carousel）导航 -->
+           <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+           <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
     <div id="no_sidebar">
     	
     	<div class="col_3">
