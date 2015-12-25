@@ -401,7 +401,7 @@ def submit_advice(request):
     username = request.COOKIES.get('username', '')  # 读取cookie
     user = UserModel.objects.get(Name=username)
     mail = user.Email
-    advice = request.GET['advice']
+    advice = request.POST['advice']
     if len(username):
         newsadvice = AdviceModel(
             Username=username,

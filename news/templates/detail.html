@@ -37,11 +37,22 @@ ddsmoothmenu.init({
 	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
 })
 
+
+function check(){
+    if (document.getElementById("text").value =='')
+    {
+      alert("请输入您的评论");
+      return false;
+    }
+    alert("提交成功");
+    return true;
+  }
+
 </script>
 
 <script type="text/javascript">
 //点赞的局部刷新
-function likes_num(num){
+function like_num(num){
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -59,10 +70,11 @@ else
   }
   }
   var title=document.getElementById("title").innerHTML;
-  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&amp;Title='+title,true);
+  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&'+'Title='+title,true);
   xmlhttp.send();
 }
 </script>
+
 </head>
 
 <body>
@@ -119,7 +131,7 @@ else
                 <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
                 </div>
                <div  align="center">
-                     <input type="button" onclick="likes_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
+                     <input type="button" onclick="like_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
                      <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
               </div>
             </div>
@@ -146,8 +158,8 @@ else
        <div class="sb_box">
   		<h3><a name="add_location">添加评论</a></h3>
          <div id="contact_form">
-            <form method="get" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
-                <label for="text">Message:</label> <textarea  name="text" rows="0" cols="0"></textarea>
+            <form method="post" name="contact" action="/news/add_comment/" onsubmit="return check()">
+                <label for="text">Message:</label> <textarea  name="text"id="text" rows="0" cols="0"></textarea>
                 <input type="hidden" value="{{title}}" name="sendtitle"/>
                 <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="提交" />
             </form>

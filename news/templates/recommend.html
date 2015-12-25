@@ -39,30 +39,6 @@ ddsmoothmenu.init({
 
 </script>
 
-<script type="text/javascript">
-//点赞的局部刷新
-function likes_num(num){
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function()
-  {
-  if(xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)
-  {
-  document.getElementById("praise").innerHTML=xmlhttp.responseText;
-  }
-  }
-  var title=document.getElementById("title").innerHTML;
-  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&amp;Title='+title,true);
-  xmlhttp.send();
-}
-</script>
 </head>
 
 <body>
@@ -112,25 +88,25 @@ else
        <div class="post_box">
            {% for news in most_like %}
                     {% if news.Classification == 'hot' %}
-                        <p><h2>热点</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>热点</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'social' %}
-                        <p><h2>社会</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>社会</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'domestic' %}
-                        <p><h2>国内</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>国内</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'international' %}
-                        <p><h2>国际</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>国际</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'sports' %}
-                        <p><h2>体育</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>体育</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'amusement' %}
-                        <p><h2>娱乐</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>娱乐</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
                     {% if news.Classification == 'military' %}
-                        <p><h2>军事</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                        <p><h2>军事</h2><h3><a href="/news/detail/?Title={{news.Title}}" style="text-decoration:none;">{{news.Title}}</a></h3></p>
                     {% endif%}
            <h2></h2>
            {% endfor%}

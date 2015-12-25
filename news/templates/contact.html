@@ -39,7 +39,17 @@ ddsmoothmenu.init({
 })
 
 </script>
-
+<script type="text/javascript">
+  function check(){
+    if (document.getElementById("text").value =='')
+    {
+      alert("请输入您的意见");
+      return false;
+    }
+    alert("提交成功");
+    return true;
+  }
+</script>
 </head>
 
 <body>
@@ -88,7 +98,7 @@ ddsmoothmenu.init({
     <div id="templatemo_content">
   		<h3>意见反馈</h3>
          <div id="contact_form">
-            <form method="get" name="contact" action="/news/advice/" onsubmit="alert('您的意见已发送！')">
+            <form method="post" name="contact" action="/news/advice/" onsubmit="return check()">
                 <div class="cleaner h20"></div>
                 <label for="text">Message:</label> <textarea id="text" name="advice" rows="0" cols="0" class="required"></textarea>
                 <div class="cleaner h20"></div>
