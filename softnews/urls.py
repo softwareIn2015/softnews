@@ -21,7 +21,7 @@ import settings
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    (r'^news/home/$', homepage),
+    (r'^/$', homepage),
     (r'^news/hot/$', hot_page),
     (r'^news/social/$', social_page),
     (r'^news/amusement/$', amusement_page),
