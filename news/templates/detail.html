@@ -52,25 +52,25 @@ function check(){
 
 <script type="text/javascript">
 //点赞的局部刷新
-function like_num(num){
+function likes_num(num){
 var xmlhttp;
-  if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp=new XMLHttpRequest();
-    }
-  else
-    {// code for IE6, IE5
-      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
   xmlhttp.onreadystatechange=function()
-    {
-      if(xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)
-        {
-           document.getElementById("praise").innerHTML=xmlhttp.responseText;
-      }
-    }
+  {
+  if(xmlhttp.readyState==4 && xmlhttp.status==200)
+  {
+  document.getElementById("praise").innerHTML=xmlhttp.responseText;
+  }
+  }
   var title=document.getElementById("title").innerHTML;
-  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&'+'Title='+title,true);
+  xmlhttp.open("GET","/news/add_likes/?zan="+num+'&Title='+title,true);
   xmlhttp.send();
 }
 </script>
@@ -130,8 +130,8 @@ var xmlhttp;
                 <a href="#location">{{news.Comments}}条评论</a>  |  <a href="#add_location">参与评论</a>
                 <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
                 </div>
-               <div  align="center">
-                     <input type="button" onclick="like_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
+              <div  align="center">
+                     <input type="button" onclick="likes_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
                      <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
               </div>
             </div>
