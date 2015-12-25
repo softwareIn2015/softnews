@@ -98,7 +98,7 @@ class Bugger:
         except IOError:
             return
         # print self.html
-        self.soup = bs(self.html, 'lxml', from_encoding="utf-8")
+        self.soup = bs(self.html, 'lxml')
         # print self.soup.original_encoding
         self.classification = classfication_
         self.source = source_
@@ -172,7 +172,7 @@ class Bugger:
                         except IOError:
                             continue
 
-                        detail_soup = bs(detail_html, 'lxml', from_encoding="utf-8")
+                        detail_soup = bs(detail_html, 'lxml')
                         detail_news = detail_soup.find_all('div', id='artibody')
 
                         # 寻找摘要
@@ -271,8 +271,12 @@ class Bugger:
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                         url_value)
+                            print '163 multi'
+                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             continue
                         else:  # 整合新闻
+                            print '163 make'
+                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values(%s,%s,%s)', url_value)
                             continue
@@ -284,7 +288,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html, 'lxml', from_encoding="utf-8")
+                    detail_soup = bs(detail_html, 'lxml')
                     try:
                         detail_news = detail_soup.find_all('div', class_='end-text')
                         if len(detail_news) == 0:
@@ -408,7 +412,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html, 'lxml', from_encoding="utf-8")
+                    detail_soup = bs(detail_html, 'lxml')
                     try:
                         detail_news = detail_soup.find_all('div', class_='text clear')
                         if len(detail_news) == 0:
