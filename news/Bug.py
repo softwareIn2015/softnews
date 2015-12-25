@@ -22,7 +22,7 @@ def delete():
     删除数据
     :return:
     """
-    conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
+    conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
     cur = conn.cursor()
     conn.select_db('newsdb')
     cur.execute('SET foreign_key_checks=0')
@@ -39,7 +39,7 @@ def show_data():
     :param cur: 数据库操作的cursor
     :return:
     """
-    conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
+    conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
     cur = conn.cursor()
     conn.select_db('newsdb')
     cur.execute('SET NAMES utf8;')
@@ -117,7 +117,7 @@ class Bugger:
 
     def scripy_sina(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')
@@ -230,7 +230,7 @@ class Bugger:
 
     def scripy_163(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')
@@ -354,7 +354,7 @@ class Bugger:
 
     def scripy_sohu(self):
         try:
-            conn = MySQLdb.connect(host='localhost', user='root', passwd='24678', port=3306)
+            conn = MySQLdb.connect(host='localhost', user='hitc_django', passwd='jowei*$3gj', port=3306)
             cur = conn.cursor()
             conn.select_db('newsdb')
             cur.execute('SET NAMES utf8;')

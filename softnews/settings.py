@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'softnews.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newsdb0',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'mjy123456',                  # Not used with sqlite3.
+        'NAME': 'newsdb',                      # Or path to database file if using sqlite3.
+        'USER': 'hitc_django',                      # Not used with sqlite3.
+        'PASSWORD': 'jowei*$3gj',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
