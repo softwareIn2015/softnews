@@ -88,7 +88,8 @@ else
                 <li><a href="">{{username}}</a>
                     <ul>
                      <li><a href="/User/info/">用户信息</a> </li>
-                        <li><a href="/User/logout/">退出登录</a> </li>
+                     <li><a href="/User/recommend/">推荐新闻</a> </li>
+                     <li><a href="/User/logout/">退出登录</a> </li>
                     </ul>
                 </li>
             </ul>
@@ -97,7 +98,7 @@ else
     </div> <!-- end of header -->
     
     <div id="content_top">
-     <div id="page_title">中国好新闻</div>
+     <div id="page_title">今日推荐</div>
         <div id="search_box">
             <form action="/news/search/" method="post">
                 <input type="text" value="Search" name="searchInfo" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
@@ -109,52 +110,33 @@ else
     
     <div id="templatemo_content">
        <div class="post_box">
-                <h3 id="title">{{news.Title}}</h3>
-                {% if news.Image != ' ' %}
-                    <img src="{{news.Image}}"  alt="正在加载中" height="200" width="200"/>
-                {% endif %}
-                <p>{{news.Summary}}</p>
-              	<div class="post_meta">
-                <a href="#location">{{news.Comments}}条评论</a>  |  <a href="#add_location">参与评论</a>
-                <a href="{{detail_urls.Urls}}" class="more float_r" target="_blank">详情</a>
-                </div>
-               <div  align="center">
-                     <input type="button" onclick="likes_num({{zan_count}})"  style="height:50px;width:50px; background-image:url(/static/images/zan.jpg)"/>
-                     <h4><span id="praise">{{zan_count}}</span>人觉得赞</h4>
-              </div>
-            </div>
-
-
-
-            <div class="sb_box">
-        	<h3>新闻来源：</h3>
-            <ul class="sb_list">
-                {% for url in urls %}
-                <li>
-                    {% if url.Source == 'sina' %}
-                        <strong>新浪</strong>
-                    {% elif url.Source == '163' %}
-                        <strong>网易</strong>
-                    {% elif url.Source == 'sohu' %}
-                        <strong>搜狐</strong>
-                    {% endif %}
-                    :<a href="{{url.Urls}}" target="_blank">{{url.Urls}}</a>
-                </li>
-                {% endfor %}
-            </ul>
+           {% for news in most_like %}
+                    {% if news.Classification == 'hot' %}
+                        <p><h2>热点</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'social' %}
+                        <p><h2>社会</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'domestic' %}
+                        <p><h2>国内</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'international' %}
+                        <p><h2>国际</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'sports' %}
+                        <p><h2>体育</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'amusement' %}
+                        <p><h2>娱乐</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+                    {% if news.Classification == 'military' %}
+                        <p><h2>军事</h2><h3><a href="/news/detail/?Title={{news.Title}}">{{news.Title}}</a></h3></p>
+                    {% endif%}
+           <h2></h2>
+           {% endfor%}
         </div>
-       <div class="sb_box">
-  		<h3><a name="add_location">添加评论</a></h3>
-         <div id="contact_form">
-            <form method="get" name="contact" action="/news/add_comment/" onsubmit="alert('提交成功')">
-                <label for="text">Message:</label> <textarea  name="text" rows="0" cols="0"></textarea>
-                <input type="hidden" value="{{title}}" name="sendtitle"/>
-                <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="提交" />
-            </form>
-        </div>
-       </div>
-        
     </div> <!-- end of content -->
+
     <div id="templatemo_sidebar">
         <div class="sb_box">
         	<h3>相关内容</h3>
@@ -169,36 +151,6 @@ else
 			</ul>
         </div>
 
-        <div class="sb_box">
-            <div class="container-fluid">
-		    <div class="row-fluid">
-                <table class="table table-striped table-bordered table-hover datatable">
-                    <h3><a name="location">评论列表：</a></h3>
-                    <a  href="#" id="btn1" style="text-decoration:none;">首页</a>
-                    <a  href="#" id="btn2" >上一页</a>
-                    <a  href="#" id="btn3" >下一页</a>
-                    <a  href="#" id="btn4" style="text-decoration:none;">尾页</a>
-                    <a style="text-decoration:none;">转到 </a>
-                    <input id="changePage" type="text" size="1" maxlength="4"/>
-                    <a style="text-decoration:none;">页 </a>
-                    <a href="#" id="btn5" style="text-decoration:none;">跳转</a>
-                    <table border="0"  width="280" >
-                        {% for comment in comments %}
-                        <tr><td align="left"><h4>{{comment.User.Name}}:</h4></td>
-                        </tr>
-                        <tr>
-                            <td><h5>{{comment.Text}}</h5></td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </table>
-            </div>
-            </div>
-                <!--<a id="btn0"></a>
-                <input id="pageSize" type="text" size="1" maxlength="2" value="getDefaultValue()"/><a> 条 </a> <a href="#" id="pageSizeSet">设置</a>
-                <a id="sjzl"></a>
-                -->
-        </div>
 	</div> <!-- end of sidebar -->
 
     <div class="cleaner"></div>

@@ -40,6 +40,7 @@ urlpatterns = patterns('',
     (r'^User/logout/$', logout),
     (r'^User/info/$', userinfo),
     (r'^scripy/$', scripy),
+    (r'^User/recommend/$', recommend),
     # visitor model
     (r'^news/vhome/$', vhomepage),
     (r'^news/vhot/$', vhot_page),

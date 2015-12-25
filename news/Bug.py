@@ -158,12 +158,8 @@ class Bugger:
                                 url_value = [self.source, urls, similar_news[0]]
                                 cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                             url_value)
-                                print 'sina multi'
-                                print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                                 continue
                             else:  # 整合新闻
-                                print 'sina make'
-                                print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                                 url_value = [self.source, urls, similar_news[0]]
                                 cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                             url_value)
@@ -275,12 +271,8 @@ class Bugger:
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                         url_value)
-                            print '163 multi'
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             continue
                         else:  # 整合新闻
-                            print '163 make'
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values(%s,%s,%s)', url_value)
                             continue
@@ -403,12 +395,8 @@ class Bugger:
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values (%s,%s,%s)',
                                         url_value)
-                            print 'sohu multi'
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             continue
                         else:  # 整合新闻
-                            print "sohu make"
-                            print similar_news[1].decode('utf-8').encode('gbk', 'ignore')
                             url_value = [self.source, urls, similar_news[0]]
                             cur.execute('insert into news_urlsmodel(Source, Urls, News_id) values(%s,%s,%s)', url_value)
                             continue

@@ -670,3 +670,65 @@ def scripy(request):
         Bugger(news_urls_sohu[i], classfications_sohu[i], sources_sohu[i], news_class_sohu[i], image_class_sohu[i])
     flag = 1
     return render_to_response('scripy.html', locals())
+
+
+def recommend(request):
+    """
+    给用户推荐每个类别的最热点新闻
+    :param request:
+    :return:
+    """
+    username = request.COOKIES.get('username', '')  # 读取cookie
+
+    most_like = []
+
+    # 热点类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='hot').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_hot = hot_news[len_news - 1]
+        most_like.append(most_like_hot)
+
+    # 社会类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='social').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_social = hot_news[len_news - 1]
+        most_like.append(most_like_social)
+
+    # 国内类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='domestic').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_domestic = hot_news[len_news - 1]
+        most_like.append(most_like_domestic)
+
+    # 国际类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='international').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_international = hot_news[len_news - 1]
+        most_like.append(most_like_international)
+
+    # 体育类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='sports').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_sports = hot_news[len_news - 1]
+        most_like.append(most_like_sports)
+
+    # 娱乐类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='amusement').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_amusement = hot_news[len_news - 1]
+        most_like.append(most_like_amusement)
+
+    # 军事类的最热新闻
+    hot_news = NewsModel.objects.filter(Classification='military').order_by('Likes')
+    len_news = len(hot_news)
+    if len_news != 0:
+        most_like_military = hot_news[len_news - 1]
+        most_like.append(most_like_military)
+
+    return render_to_response('recommend.html', locals())
