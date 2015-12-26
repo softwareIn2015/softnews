@@ -74,20 +74,20 @@ def merge(cur, title_):
     """
     cur.execute('select * from news_newsmodel')
     news_set = cur.fetchall()  # 所有和需要整合的新闻的集合
-    title_set = title_.split()  # 需要整合的新闻的标题出现的字的集合
-    # print 'title'
-    # print title_.decode('utf-8').encode('gbk', 'ignore')
     for news_ in news_set:
-        # print news_[1].decode('utf-8').encode('gbk', 'ignore')
-        news_title_set = news_[1].split()  # 数据库中的新闻的标题出现的字的集合
         count = 0
-        for item in title_set:
-            if item in news_title_set:
+        len_ = 0
+        for item in enumerate(title_):
+            len_ += 1
+            news_character = []
+            for character in enumerate(news_[1]):
+                news_character.append(character[1])
+            if item[1] in news_character:
                 count += 1
-        similarity = 1.0 * count / len(title_set)
-        if similarity > 0.5:
-            print "return"
-            print news_
+        similarity = 1.0 * count / len_
+
+        if similarity > 0.8:
+            print similarity
             return news_, similarity  # 直接返回这个新闻和相似度
     return None, 0
 
@@ -100,7 +100,7 @@ class Bugger:
         except IOError:
             return
         # print self.html
-        self.soup = bs(self.html)
+        self.soup = bs(self.html, 'lxml')
         # print self.soup.original_encoding
         self.classification = classfication_
         self.source = source_
@@ -174,7 +174,7 @@ class Bugger:
                         except IOError:
                             continue
 
-                        detail_soup = bs(detail_html)
+                        detail_soup = bs(detail_html, 'lxml')
                         detail_news = detail_soup.find_all('div', id='artibody')
 
                         # 寻找摘要
@@ -286,7 +286,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html)
+                    detail_soup = bs(detail_html, 'lxml')
                     try:
                         detail_news = detail_soup.find_all('div', class_='end-text')
                         if len(detail_news) == 0:
@@ -410,7 +410,7 @@ class Bugger:
                     except IOError:
                         continue
 
-                    detail_soup = bs(detail_html)
+                    detail_soup = bs(detail_html, 'lxml')
                     try:
                         detail_news = detail_soup.find_all('div', class_='text clear')
                         if len(detail_news) == 0:
