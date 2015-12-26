@@ -668,7 +668,6 @@ def add_likes(request):
     user = UserModel.objects.get(Name=username)
     title = getlikes['Title']
     news = NewsModel.objects.get(Title=title)
-    news.Likes = int(getlikes['zan'])
     newlikes = LikesModel(
         User=user,
         Ip=ip,
